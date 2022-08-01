@@ -1,0 +1,12 @@
+.card{
+    border-radius: 15px;
+    width: fit-content;
+    border: 2px solid #8a8a8a;
+    padding: 10px;
+}
+.line{
+    background-color: rgb(197, 197, 197);
+    width: 90%;
+    height: 2px;
+    margin: 10px auto;
+}

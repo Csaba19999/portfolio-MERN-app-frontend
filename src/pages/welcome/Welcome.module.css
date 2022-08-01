@@ -1,0 +1,56 @@
+.title_box h1, .title_box h2{
+    margin: unset;
+    text-align: center;
+}
+.title_box{
+    position: fixed;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+}
+.image_box{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.image_box img{
+    width: 100%;
+    position: relative;
+    transform: scale(1.1);
+    transition: transform .3s;
+}
+.image_box img:hover{
+    transform: scale(1.2);
+}
+.welcome_content{
+    z-index: 100;
+    position: relative;
+    background-color: white;
+    height: 1000px;
+    width: 100%;
+    text-align: center;
+}
+.welcome_content h2{
+    margin: unset;
+}
+.welcome_content{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teszt{
+    width: 500px;
+    height: 500px;
+    background-color: red;
+}

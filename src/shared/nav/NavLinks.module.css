@@ -1,0 +1,12 @@
+.navigation{
+    margin-right: 50px;
+}
+.nav_items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: antiquewhite;
+    margin: unset;
+    padding-inline-start: 0px;
+    list-style: none;
+}

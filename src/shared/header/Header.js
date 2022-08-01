@@ -1,9 +1,10 @@
 import NavLinks from '../nav/NavLinks';
+import classes from './Header.module.css';
 
 function Header(){
     return(
-        <header>
-            <h1>Header</h1>
+        <header className={`${classes.main_header}`}>
+            <img src='./images/icons/signiture.svg' alt='svg-signiture'/>
             <NavLinks classnames="nav_links"/>
         </header>
     );

@@ -1,0 +1,66 @@
+.footer_box{
+    display: grid;
+    grid-template-areas: 
+    'fb fd fm'
+    'fb fd fm'
+    'fb fd fm';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px;
+    margin: 0 auto;
+    width: auto;
+    position: relative;
+}
+.footer_description{
+    grid-area: fd;
+}
+.footer_links_box{
+    grid-area: fb;
+}
+.footer_social_media{
+    grid-area: fm;
+}
+
+.footer_links_box{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.footer_links_box ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.footer_links_box ul li{
+  list-style: none;
+  margin-bottom: 3px;
+}
+.footer_links_box ul li a{
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 10px;
+}
+
+.footer_description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer_social_media{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.footer_social_media img{
+    max-width: 50px;
+    margin: 15px;
+}
