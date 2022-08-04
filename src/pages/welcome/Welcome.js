@@ -1,32 +1,43 @@
 import { Fragment } from "react";
-import { Slide, Zoom, Fade } from "react-awesome-reveal";
+import { Zoom, Fade } from "react-awesome-reveal";
 import WaveAnimation from "../../shared/background/WaveAnimation";
-import Card from "../../shared/overlay/Card";
+import CvDownload from "./components/cv/CvDownload";
+import KnownTools from "./components/KnownTools/KnownTools";
+import ShortAbout from "./components/short-about/ShortAbout";
+import SoftSkillsList from "./components/soft-skills/SoftSkillsList";
+import HardSkillsList from "./components/hard-skills/HardSkillsList";
 import classes from "./Welcome.module.css";
 
 function Welcome() {
   return (
     <Fragment>
       <div className={classes.title_box}>
-        <h1 className={classes.title}>Szervusz a nevem Ménesi Csaba</h1>
-        <h2 className={classes.title}>És frontend fejlesztő vagyok.</h2>
-        <div className={classes.image_box}>
-          <img src="./images/img/profil.jpg" alt="Ménesi Csaba profilképe" />
-        </div>
+        <Fade triggerOnce direction="down" duration={1000}>
+          <h1 className={classes.title}>Szervusz a nevem Ménesi Csaba</h1>
+          <h2 className={classes.title}>És frontend fejlesztő vagyok.</h2>
+          <div className={classes.image_box}>
+            <img src="./images/img/profil.jpg" alt="Ménesi Csaba profilképe" />
+          </div>
+        </Fade>
+        <Zoom duration={500}>
+          <CvDownload />
+        </Zoom>
       </div>
       <WaveAnimation />
-      <div className={classes.welcome_content}>
-        <div>
-          <Slide triggerOnce duration={1500}>
-            <Card title={'teszt Kártya'} position={'right'}>
-              <p className={classes.teszt}>
-                sdhf isdh fuhsduiofhuoisdhfhsdiouf huoisdh fuh sdioufh uiosdh
-                fuiohsd uiofh suiodfh ouidsh fioujsdh fiouhsdouifh
-                oiujdshfoiusdh foihawsdoifhjsdoikj flksdn ofgin osdirvn od
-                riogvn oignon o
-              </p>
-            </Card>
-          </Slide>
+      <div className={classes.max_content}>
+        <div className={classes.welcome_content}>
+          <Fade className={classes.knownCard} triggerOnce direction="up" duration={1000}>
+              <KnownTools />
+          </Fade>
+          <Fade className={classes.shortAboutCard} triggerOnce direction="up" duration={1000}>
+                <ShortAbout />
+          </Fade>
+          <Fade className={classes.softSkills} triggerOnce direction="left" duration={1000}>
+            <SoftSkillsList />
+          </Fade>
+          <Fade className={classes.hardSkills} triggerOnce direction="right" duration={1000}>
+            <HardSkillsList />
+          </Fade>
         </div>
       </div>
     </Fragment>

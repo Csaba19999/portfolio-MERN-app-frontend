@@ -1,0 +1,11 @@
+.soft_skills_list{
+    list-style: none;
+    padding-inline-start: unset;
+    margin: 0 auto;
+    margin: 10px 20px;
+}
+.line{
+    width: 2px;
+    height: 100px;
+    background-color: #000000;
+}

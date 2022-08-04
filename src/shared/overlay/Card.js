@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import classes from "./Card.module.css";
 
 //A kártya közepére kerülő középső vonal kell a kártya közepére
@@ -6,9 +7,21 @@ import classes from "./Card.module.css";
 
 function Card(props) {
   return (
-    <div className={`${classes.card} ${props.position}`}>
-      <h2 className={`${classes.title}`}>{props.title}</h2>
-      <div className={classes.line}></div>
+    <div
+      className={`${classes.card} 
+      ${!props.position ? "center" : ''}
+      ${props.position === "right" && classes.right}
+      ${props.position === "left" && classes.left}
+      ${props.position === "center" && classes.center}
+      `}
+      style={{ backgroundColor: props.background ? props.background : "white" }}
+    >
+      {props.title && (
+        <Fragment>
+          <h2>{props.title}</h2>
+          <div className={classes.line}></div>
+        </Fragment>
+      )}
       {props.children}
     </div>
   );

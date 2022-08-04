@@ -1,0 +1,15 @@
+.card_content{
+    width: 400px;
+    height: 400px;
+}
+.card_content img{
+    width: 110px;
+}
+.card_title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+}
+.card_text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}

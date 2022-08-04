@@ -1,7 +1,7 @@
 /* waves */
 .ocean {
   height: 200px; /* change the height of the waves here */
-  margin-top: 500px;
+  margin-top: 800px;
   width: 100%;
   overflow-x: hidden;
   z-index: 1000;
@@ -20,6 +20,7 @@
   transform: translate3d(0, 0, 0);
   opacity: 1;
   color: #ffffff;
+  filter: blur();
 }
 
 .wave:nth-of-type(2) {

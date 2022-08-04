@@ -1,0 +1,45 @@
+.soft_skill_item {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 180px 50px auto;
+  align-items: center;
+  grid-template-areas: "t l d";
+}
+.level_div {
+  width: 60px;
+  height: 8px;
+  border-radius: 2px;
+  margin: 0px 5px;
+}
+.active {
+    background: linear-gradient(181deg, #b827fc, #37a1fe);
+    background-size: 400% 400%;
+
+    animation: AnimationName 5s ease infinite;
+}
+.levels {
+  display: flex;
+  flex-direction: row;
+}
+.line {
+  grid-area: l;
+  justify-self: center;
+  width: 2px;
+  height: 50px;
+  margin: 0px 20px;
+  background-color: rgb(197, 197, 197);
+}
+.title {
+  grid-area: t;
+  justify-self: end;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+@keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:50% 50%}
+    100%{background-position:50% 0%}
+}

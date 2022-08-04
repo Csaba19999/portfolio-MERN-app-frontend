@@ -31,26 +31,54 @@
     transform: scale(1.2);
 }
 .welcome_content{
+    max-width: 1920px;
+    padding: 0px 50px;
+    margin: 0 auto;
+    display: grid;
+    gap: 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'ck ck'
+    'sab sab'
+    'ss hs';
+}
+.knownCard{
+    grid-area: ck;
+}
+.softSkills{
+    grid-area: ss;
+    justify-self: end;
+}
+.hardSkills{
+    grid-area: hs;
+    justify-self: start;
+}
+.shortAboutCard{
+    grid-area: sab;
+    justify-self: center;
+}
+.max_content{
     z-index: 100;
     position: relative;
     background-color: white;
-    height: 1000px;
+    height: 2000px;
     width: 100%;
+    margin: 0 auto;
     text-align: center;
-}
-.welcome_content h2{
-    margin: unset;
-}
-.welcome_content{
     padding-top: 50px;
+}
+.knownCard h3{
+    margin: unset;
+    margin-bottom: 10px;
+    width: 30%;
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.45);
+}
+.knownCard{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-.teszt{
-    width: 500px;
-    height: 500px;
-    background-color: red;
 }

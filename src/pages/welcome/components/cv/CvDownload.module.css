@@ -1,0 +1,19 @@
+.cv{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+}
+.cv a{
+    padding: 15px;
+    background-color: #b827fc;
+    color: white;
+    border-radius: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+}

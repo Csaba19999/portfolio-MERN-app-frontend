@@ -1,0 +1,29 @@
+.soft_skill_item{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 180px 50px auto;
+    align-items: center;
+    grid-template-areas: 
+    't l d';
+}
+.title{
+    grid-area: t;
+    justify-self: end;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+.description{
+    grid-area: d;
+    display: flex;
+    flex-direction: row;
+}
+.line{
+    grid-area: l;
+    width: 2px;
+    height: 50px;
+    margin: 0px 20px;
+    justify-self: center;
+    background-color: rgb(197, 197, 197);
+}
