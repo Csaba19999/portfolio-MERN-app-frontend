@@ -1,8 +1,6 @@
 import classes from "./SoftSkillItem.module.css";
 
 function SoftSkillsItem(props) {
-
-    console.log(props.description);
   return (
     <li className={classes.soft_skill_item}>
         <span className={classes.title}>{props.title}</span>

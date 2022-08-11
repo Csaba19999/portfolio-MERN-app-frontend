@@ -1,0 +1,35 @@
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.close{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: 0.1s ease-in-out;
+}
+.close:hover{
+  opacity: 1;
+}
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: min-content;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 10000;
+}

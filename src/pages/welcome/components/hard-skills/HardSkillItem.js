@@ -15,8 +15,6 @@ function SoftSkillsItem(props) {
         return divs;
     }
 
-    console.log(levelDivs());
-
   return (
     <li className={classes.soft_skill_item}>
         <span className={classes.title}>{props.title}</span>

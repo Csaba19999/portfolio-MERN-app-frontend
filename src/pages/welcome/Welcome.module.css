@@ -35,12 +35,15 @@
     padding: 0px 50px;
     margin: 0 auto;
     display: grid;
-    gap: 100px;
+    gap: 150px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     'ck ck'
     'sab sab'
-    'ss hs';
+    'cp cp'
+    'pp pp'
+    'ss hs'
+    'rg rg';
 }
 .knownCard{
     grid-area: ck;
@@ -57,15 +60,28 @@
     grid-area: sab;
     justify-self: center;
 }
+.CurrentPosition{
+    grid-area: cp;
+    justify-self: center;
+}
+.PreviusPosition{
+    grid-area: pp;
+    justify-self: center;
+}
+.ReferencesGallery{
+    grid-area: rg;
+    justify-self: center;
+}
 .max_content{
     z-index: 100;
     position: relative;
     background-color: white;
-    height: 2000px;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
     text-align: center;
     padding-top: 50px;
+    padding-bottom: 100px;
 }
 .knownCard h3{
     margin: unset;

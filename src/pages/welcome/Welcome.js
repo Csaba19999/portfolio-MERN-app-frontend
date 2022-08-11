@@ -7,6 +7,9 @@ import ShortAbout from "./components/short-about/ShortAbout";
 import SoftSkillsList from "./components/soft-skills/SoftSkillsList";
 import HardSkillsList from "./components/hard-skills/HardSkillsList";
 import classes from "./Welcome.module.css";
+import CurrentPosition from "./components/positions/CurrentPosition";
+import PreviusPositions from "./components/positions/PreviusPositions";
+import ReferencesGallery from "./components/references-gallery/ReferencesGallery";
 
 function Welcome() {
   return (
@@ -32,11 +35,20 @@ function Welcome() {
           <Fade className={classes.shortAboutCard} triggerOnce direction="up" duration={1000}>
                 <ShortAbout />
           </Fade>
+          <Fade className={classes.CurrentPosition} triggerOnce direction="up" duration={1000}>
+             <CurrentPosition />
+          </Fade>
+          <Fade className={classes.PreviusPosition} triggerOnce direction="up" duration={1000}>
+             <PreviusPositions />
+          </Fade>
           <Fade className={classes.softSkills} triggerOnce direction="left" duration={1000}>
             <SoftSkillsList />
           </Fade>
           <Fade className={classes.hardSkills} triggerOnce direction="right" duration={1000}>
             <HardSkillsList />
+          </Fade>
+          <Fade className={classes.ReferencesGallery} triggerOnce direction="up" duration={1000}>
+            <ReferencesGallery />
           </Fade>
         </div>
       </div>

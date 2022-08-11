@@ -1,3 +1,4 @@
+import { Fade } from "react-reveal";
 import classes from "./ShortAbout.module.css";
 import SkillCard from "./SkillCard";
 
@@ -17,7 +18,7 @@ function ShortAbout() {
         nisi nisl aliquet nisl, eget consectetur nisl nisi vel nisl.
       </div>
       <div className={classes.skills}>
-        <SkillCard
+          <SkillCard
           title="Csapatmunka"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
             euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget

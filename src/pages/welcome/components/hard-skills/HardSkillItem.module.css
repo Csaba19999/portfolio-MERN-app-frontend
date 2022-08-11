@@ -13,10 +13,9 @@
   margin: 0px 5px;
 }
 .active {
-    background: linear-gradient(181deg, #b827fc, #37a1fe);
-    background-size: 400% 400%;
-
-    animation: AnimationName 5s ease infinite;
+  background: linear-gradient(181deg, #b827fc, #37a1fe);
+  background-size: 400% 400%;
+  animation: AnimationName 5s ease infinite;
 }
 .levels {
   display: flex;
@@ -39,7 +38,13 @@
 }
 
 @keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:50% 50%}
-    100%{background-position:50% 0%}
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
