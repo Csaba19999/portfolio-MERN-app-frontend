@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import Welcome from "./pages/welcome/Welcome";
-import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import References from "./pages/references/References";
 import NotFound from "./pages/404/NotFound";
@@ -15,9 +14,6 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Welcome />
-        </Route>
-        <Route path="/about" exact>
-          <About />
         </Route>
         <Route path="/contact" exact>
           <Contact />

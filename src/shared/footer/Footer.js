@@ -13,9 +13,6 @@ function Footer() {
             <NavLink to="/">Kezdőlap</NavLink>
           </li>
           <li>
-            <NavLink to="/about">Rólam</NavLink>
-          </li>
-          <li>
             <NavLink to="/conatc">kapcsolat</NavLink>
           </li>
           <li>

@@ -1,120 +1,130 @@
-.GalleryItemInspect{
-    width: 1280px;
-    height: 720px;
-    margin: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    'gc gi';
-    grid-gap: 20px;
+.GalleryItemInspect {
+  width: 1280px;
+  height: 720px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "gc gi";
+  grid-gap: 20px;
 }
-.GalleryItemInspect__cover{
-    grid-area: gc;
+.GalleryItemInspect__cover {
+  grid-area: gc;
 }
-.GalleryItemContent{
-    grid-area: gi;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: auto 1fr auto auto auto;
-    grid-template-areas:
-    'ti ti'
-    'de de'
-    'pr pr'
-    'to to'
-    'li li';
-    grid-gap: 30px;
+.GalleryItemContent {
+  grid-area: gi;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto 1fr auto auto auto;
+  grid-template-areas:
+    "ti ti"
+    "de de"
+    "pr pr"
+    "to to"
+    "li li";
+  grid-gap: 30px;
 }
-.title{
-    grid-area: ti;
+.title {
+  grid-area: ti;
 }
-.description{
-    grid-area: de;
-    max-height: 370px;
+.description {
+  grid-area: de;
+  max-height: 370px;
 }
-.tools{
-    grid-area: to;
+.tools {
+  grid-area: to;
 }
-.preddict{
-    grid-area: pr;
+.preddict {
+  grid-area: pr;
 }
-.links{
-    grid-area: li;
+.links {
+  grid-area: li;
 }
 
+.GalleryItemInspect__cover {
+  overflow: hidden;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.GalleryItemInspect__cover iframe {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  color: #27273c;
+}
+.description {
+  text-align: justify;
+  font-size: 16px;
+  color: #27273c;
+  overflow-y: scroll;
+  padding-right: 5px;
+}
+.description::-webkit-scrollbar {
+  width: 6px;
+}
 
-.GalleryItemInspect__cover{
-    overflow: hidden;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.description::-webkit-scrollbar-track {
+  background: transparent;
 }
-.GalleryItemInspect__cover iframe{
-    width: 100%;
-    height: 100%;
+
+.description::-webkit-scrollbar-thumb {
+  background-color: rgb(61, 145, 255);
+  border-radius: 15px;
+  
 }
-.title{
-    font-size: 25px;
-    font-weight: bold;
-    color: #27273c;
+.tools {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: fit-content;
+  border-radius: 10px;
 }
-.description{
-    text-align: justify;
-    font-size: 16px;
-    color: #27273c;
-    overflow-y: scroll;
-    padding-right: 5px;
+.tools img {
+  width: auto;
+  max-height: 50px;
+  margin: 10px;
 }
-.tools{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    height: fit-content;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -30px 15px -28px inset;
+.date {
+  font-weight: bold;
+  color: #27273c;
 }
-.tools img{
-    width: auto;
-    max-height: 50px;
-    margin: 10px;
+.hours {
+  font-weight: bold;
+  color: #27273c;
 }
-.date{
-    font-weight: bold;
-    color: #27273c;
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 15px;
 }
-.hours{
-    font-weight: bold;
-    color: #27273c;
+.links a {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  border-radius: 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 0px;
 }
-.links{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 15px;
+.links a img {
+  width: 35px;
 }
-.links a{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 30%;
-    border-radius: 15px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px 0px;
+.githubLink {
+  background-color: #27273c;
 }
-.links a img{
-    width: 35px;
-}
-.githubLink{
-    background-color: #27273c;
-}
-.pageLink{
-    background-color: #5151ff;
+.pageLink {
+  background-color: #5151ff;
 }

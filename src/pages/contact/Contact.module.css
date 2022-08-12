@@ -1,0 +1,18 @@
+.contact_page{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
+    align-items: center;
+    height: 100vh;
+}
+.title{
+    font-size: 25px;
+    font-weight: bold;
+    color: #b082b5;
+    align-self: start;
+    margin: 30px 0px 30px -50px;
+}
+.title > h3,h2,h4{
+    margin: 0;
+}

@@ -35,6 +35,15 @@
   opacity: 0.3;
 }
 
+.noMargin{
+  position: absolute;
+  margin: 0 0;
+  bottom: 0;
+  height: 200px;
+  width: 100%;
+  z-index: 0;
+}
+
 @keyframes wave {
   0% {
     transform: translateX(0);

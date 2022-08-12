@@ -1,0 +1,89 @@
+.email_form {
+  width: 400px;
+  height: 550px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "title title"
+    "name name"
+    "message message"
+    "button button";
+  grid-gap: 30px;
+  padding: 15px;
+  border-radius: 15px;
+  background-image: linear-gradient(to top, #2160d466 0%, #3e00615e 100%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.name {
+  grid-area: name;
+}
+.title {
+  grid-area: title;
+}
+.message {
+  grid-area: message;
+}
+.button {
+  grid-area: button;
+}
+
+.email_form section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.email_form section label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.email_form section input,
+button {
+  width: 98%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0px 5px;
+  font-family: Arial, Helvetica, sans-serif
+}
+.email_form section textarea {
+  width: 98%;
+  height: 50%;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0px 5px;
+  resize: unset;
+  font-family: Arial, Helvetica, sans-serif
+}
+.button {
+  width: 150px;
+  justify-self: end;
+}
+.invalid {
+  animation: invalid_animation 2s;
+}
+.invalidError {
+  color: red;
+  margin: 0;
+  padding-top: 5px;
+  font-size: 15px;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+@keyframes invalid_animation {
+  0% {
+    box-shadow: rgb(255, 0, 0) 0px 0px 0px 0px, rgb(255, 0, 0) 0px 0px 0px -0px,
+      rgb(255, 0, 0) 0px 0px inset;
+  }
+  50% {
+    box-shadow: rgb(255, 0, 0) 0px 0px 0px 2px, rgb(255, 0, 0) 0px 4px 6px -1px,
+      rgb(255, 0, 0) 1px 0px inset;
+  }
+  100% {
+    box-shadow: rgb(255, 0, 0) 0px 0px 0px 0px, rgb(255, 0, 0) 0px 0px 0px -0px,
+      rgb(255, 0, 0) 0px 0px inset;
+  }
+}
