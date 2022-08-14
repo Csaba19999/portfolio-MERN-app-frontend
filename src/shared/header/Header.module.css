@@ -17,7 +17,7 @@
 }
 .background_drop{
     height: 150px;
-    width: min-content;
+    width: 100%;
     z-index: 1099;
     position: fixed;
     background-image: linear-gradient(to bottom,#27273c 0% , transparent 100%);

@@ -51,11 +51,11 @@ function SoftSkillsList() {
         <ul className={classes.soft_skills_list}>
           {skills.map((softSkill) => (
             <SoftSkillsItem
-              key={softSkill.id}
-              id={softSkill.id}
-              title={softSkill.title}
-              description={softSkill.description}
-            />
+            key={softSkill.id}
+            id={softSkill.id}
+            title={softSkill.title}
+            description={softSkill.description}
+          />
           ))}
         </ul>
     </Card>

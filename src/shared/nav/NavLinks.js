@@ -1,9 +1,6 @@
 import NavItem from "./NavItem";
 import classes from './NavLinks.module.css';
-import {useState} from 'react';
 function NavLink(props){
-
-
     return(
         <nav className={classes.navigation}>
             <ul className={classes.nav_items}>

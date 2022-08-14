@@ -10,8 +10,6 @@ function Form() {
   const [enteredMessage, setEnteredMessage] = useState("");
   const [rerenderCounter, setRerenderCounter] = useState(0);
 
-  console.log(messageIsValid, titlelIsValid, nameIsValid);
-
   useEffect(() => {
     if(rerenderCounter >= 1){
         formValiti();

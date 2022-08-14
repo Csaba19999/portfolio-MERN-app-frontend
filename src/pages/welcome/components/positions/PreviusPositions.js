@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useIsMobile from "../../../../hooks/isMobile-hook";
 import Card from "../../../../shared/overlay/Card";
 import PreviusPositionItem from "./PreviusPositionItem";
 import classes from "./PreviusPositions.module.css";
@@ -55,14 +56,7 @@ const DUMMY_DATA = [
 ];
 
 function PreviusPositions() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1150);
-
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-    setIsMobile(width < 1150);
-  };
-  window.addEventListener("resize", updateWidth);
+  const { isMobile } = useIsMobile(1150);
 
   return (
     <Card position="center" title="Előző munkahelyeim">

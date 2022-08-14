@@ -1,6 +1,6 @@
 import Card from "../../../../shared/overlay/Card";
 import classes from "./HardSkillsList.module.css";
-import SoftSkillsItem from "./HardSkillItem";
+import HardkillsItem from "./HardSkillItem";
 
 let skills = [
   {
@@ -55,16 +55,16 @@ let skills = [
   },
 ];
 
-function SoftSkillsList() {
+function HardSkillsList() {
   return (
     <Card title="Hard skills" position="left">
         <ul className={classes.soft_skills_list}>
-          {skills.map((softSkill) => (
-            <SoftSkillsItem
-              key={softSkill.id}
-              id={softSkill.id}
-              title={softSkill.title}
-              level={softSkill.level}
+          {skills.map((hardSkill) => (
+            <HardkillsItem
+              key={hardSkill.id+"_"+hardSkill.level.toString()}
+              id={hardSkill.id}
+              title={hardSkill.title}
+              level={hardSkill.level}
             />
           ))}
         </ul>
@@ -72,4 +72,4 @@ function SoftSkillsList() {
   );
 }
 
-export default SoftSkillsList;
+export default HardSkillsList;

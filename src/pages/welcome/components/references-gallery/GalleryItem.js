@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import useIsMobile from "../../../../hooks/isMobile-hook";
 import Modal from "../../../../shared/modal/Modal";
 
 import classes from "./GalleryItem.module.css";
@@ -8,8 +9,7 @@ import GalleryItemInspect from "./GalleryItemInspect";
 function GalleryItem(props) {
   const [isOnMouse, setIsOnMouse] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [width, setWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 850);
+  const { isMobile } = useIsMobile(850);
 
   const showMoodleButton = () => {
     setIsOnMouse(true);
@@ -24,12 +24,6 @@ function GalleryItem(props) {
     console.log("bezaras");
     setIsModalOpen(false);
   };
-
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-    setIsMobile(width < 850);
-  };
-  window.addEventListener("resize", updateWidth);
 
   return (
     <Fragment>

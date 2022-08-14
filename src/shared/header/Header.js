@@ -1,17 +1,13 @@
 import { Fragment } from "react";
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import useIsMobile from "../../hooks/isMobile-hook";
 import BurgerNavLinks from "../nav/BurgerNavLinks";
 import NavLinks from "../nav/NavLinks";
 import classes from "./Header.module.css";
 
 function Header() {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-  };
-  window.addEventListener("resize", updateWidth);
+  const {width} = useIsMobile(800);
 
   return (
     <Fragment>

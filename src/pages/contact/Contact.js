@@ -5,6 +5,7 @@ import { Fade } from "react-awesome-reveal";
 import { Fragment } from "react";
 
 function Contact() {
+
   return (
     <Fragment>
       <div className={classes.contact_page}>
