@@ -64,3 +64,11 @@
     max-width: 50px;
     margin: 15px;
 }
+
+@media screen and (max-width: 1440px) {
+    .footer_box{
+        grid-template-areas: 
+        'fb fm fm'
+        'fd fd fd';
+    }
+}

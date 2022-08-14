@@ -8,3 +8,9 @@
     width: 100%;
     padding: 0px;
 }
+.title{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(200, 175, 244);
+    margin: 50px;
+}

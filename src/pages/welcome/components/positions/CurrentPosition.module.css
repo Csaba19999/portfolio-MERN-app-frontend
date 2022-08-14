@@ -1,69 +1,124 @@
-.current_card{
-    width: 1060px;
+.current_card {
+  width: 1060px;
+  display: grid;
+  grid-template-columns: 95px auto 25%;
+  grid-template-rows: 55px auto;
+  gap: 0px 30px;
+  grid-template-areas:
+    "c r mt"
+    "c rd mt";
+}
+.company {
+  grid-area: c;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.role {
+  grid-area: r;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: baseline;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.role_description {
+  grid-area: rd;
+}
+.main_tools {
+  grid-area: mt;
+}
+.company img {
+  width: 100%;
+}
+
+.role::before {
+  content: "Beosztás:";
+  font-size: 16px;
+  font-weight: bold;
+  color: #27273c;
+  margin-right: 10px;
+}
+.role_description {
+  text-align: justify;
+  height: 100%;
+  overflow: hidden;
+}
+.role_description p {
+  margin: 0px;
+}
+.tool {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 30px;
+}
+.tool img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 10px 10px;
+}
+.main_tools::before {
+  font-weight: bold;
+  content: "tech stack:";
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #27273c;
+}
+
+@media screen and (max-width: 1150px) {
+  .current_card {
+    width: 600px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 95px auto 25%;
-    grid-template-rows: 55px auto;
-    gap: 0px 30px;
-    grid-template-areas: 
-    'c r mt'
-    'c rd mt';
-}
-.company{
-    grid-area: c;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.role{
-    grid-area: r;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: baseline;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.role_description{
-    grid-area: rd;
-}
-.main_tools{
-    grid-area: mt;
-}
-.company img{
-    width: 100%;
-}
-
-.role::before{
-    content: 'Beosztás:';
-    font-size: 16px;
-    font-weight: bold;
-    color: #27273c;
-    margin-right: 10px;
-}
-.role_description{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "c r"
+      "rd rd"
+      "mt mt";
+    justify-items: center;
+  }
+  .role{
+    justify-self: start;
+    align-self: start;
+  }
+  .role_description {
     text-align: justify;
-    height: 100%;
-    overflow: hidden;
-
-}
-.role_description p{
-    margin: 0px;
-}
-.tool{
+    margin: 20px;
+  }
+  .main_tools {
+    align-self: center;
+  }
+  .company {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-self: center;
+    align-items: flex-start;
+  }
+  .company p{
+    display: none;
+  }
+  .tool {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    height: 30px;
-}
-.tool img{
+    height: 100%;
+    padding-bottom: 20px;
+  }
+  .tool img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 30px;
     margin: 10px 10px;
+  }
 }
-.main_tools::before{
-    font-weight: bold;
-    content: 'tech stack:';
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: #27273c;
+@media screen and (max-width: 800px) {
+    .current_card {
+        width: 100%;
+    }
 }

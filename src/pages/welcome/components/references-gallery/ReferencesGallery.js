@@ -68,13 +68,14 @@ const Dummy_data = [
   },
 ];
 
-function ReferencesGallery() {
+function ReferencesGallery(props) {
+  const { animationDelay } = props;
   return (
       <Fragment>
-        <h2>Referencia galléria</h2>
+        <h2 className={classes.title}>Referencia galléria</h2>
         <ul className={classes.gallery}>
           {Dummy_data.map((item, index) => (
-            <GalleryItem key={item.id} {...item} delay={index + 5} />
+            <GalleryItem animationDelay={animationDelay} key={item.id} {...item} delay={index + 5} />
           ))}
         </ul>
       </Fragment>

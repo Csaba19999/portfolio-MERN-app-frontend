@@ -18,6 +18,7 @@
     grid-area: d;
     display: flex;
     flex-direction: row;
+    text-align: left;
 }
 .line{
     grid-area: l;
@@ -27,3 +28,26 @@
     justify-self: center;
     background-color: rgb(197, 197, 197);
 }
+@media screen and (max-width: 800px) {
+    .soft_skill_item {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-areas: 
+      "t"
+      "d";
+      margin: 10px;
+      width: 90%;
+    }
+    .line {
+      display: none;
+    }
+    .title{
+      justify-self: start;
+      font-size: 18px;
+    }
+    .title::after{
+      content: ' : ';
+    }
+  }

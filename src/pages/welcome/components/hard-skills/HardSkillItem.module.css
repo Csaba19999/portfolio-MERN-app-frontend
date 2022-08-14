@@ -10,7 +10,6 @@
   width: 60px;
   height: 8px;
   border-radius: 2px;
-  margin: 0px 5px;
 }
 .active {
   background: linear-gradient(181deg, #b827fc, #37a1fe);
@@ -18,8 +17,11 @@
   animation: AnimationName 5s ease infinite;
 }
 .levels {
+  grid-area: d;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .line {
   grid-area: l;
@@ -35,6 +37,41 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 15px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .soft_skill_item {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    "t"
+    "d";
+    margin: 10px;
+  }
+  .level_div {
+    width: 60px;
+    height: 8px;
+    border-radius: 2px;
+  }
+  .levels {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 10px;
+  }
+  .line {
+    display: none;
+  }
+  .title{
+    justify-self: start;
+    font-size: 18px;
+  }
+  .title::after{
+    content: ' : ';
+  }
 }
 
 @keyframes AnimationName {

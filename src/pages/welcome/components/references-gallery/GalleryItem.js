@@ -8,6 +8,8 @@ import GalleryItemInspect from "./GalleryItemInspect";
 function GalleryItem(props) {
   const [isOnMouse, setIsOnMouse] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 850);
 
   const showMoodleButton = () => {
     setIsOnMouse(true);
@@ -23,13 +25,23 @@ function GalleryItem(props) {
     setIsModalOpen(false);
   };
 
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+    setIsMobile(width < 850);
+  };
+  window.addEventListener("resize", updateWidth);
+
   return (
     <Fragment>
       <Fade
         triggerOnce
-        direction="right"
+        direction="down"
         duration={500}
-        delay={parseInt(props.delay + "00")}
+        delay={
+          props.animationDelay
+            ? props.animationDelay
+            : parseInt(props.delay + "00")
+        }
       >
         <li
           className={classes.gallery_item}
@@ -39,7 +51,15 @@ function GalleryItem(props) {
             backgroundImage: `url(${props.cover})`,
           }}
         >
-          {isOnMouse && (
+          {isOnMouse && isMobile && (
+            <Fragment>
+              <p>{props.title}</p>
+              <a href={props.pageLink ? props.pageLink : props.githubLink} target={"_blank"}>
+                Megtekintés
+              </a>
+            </Fragment>
+          )}
+          {isOnMouse && !isMobile && (
             <Fade duration={500}>
               <p onClick={openModal}>{props.title}</p>
               <button onClick={openModal}>Megtekintés</button>
@@ -49,7 +69,7 @@ function GalleryItem(props) {
       </Fade>
       {isModalOpen && (
         <Modal closeModal={closeModal}>
-            <GalleryItemInspect id={props.id} />
+          <GalleryItemInspect id={props.id} />
         </Modal>
       )}
     </Fragment>

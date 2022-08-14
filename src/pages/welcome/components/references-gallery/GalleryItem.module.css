@@ -32,6 +32,7 @@
     border: none;
     border-radius: 5px;
     padding: 10px;
+    height: 60px;
     cursor: pointer;
     transition: all 1s ease-in-out;
 }
@@ -47,6 +48,31 @@
     margin: 0px;
     text-shadow: 0px 0px 20px rgb(0, 0, 0), 0px 0px 25px rgb(0, 0, 0);
     padding-bottom: 20px;
+}
+.gallery_item a{
+    background: linear-gradient(181deg, #af02fe, #048aff);
+    background-size: 400% 400%;
+    animation: AnimationName 5s ease infinite;
+    width: fit-content;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+.gallery_item a:hover{
+    background: linear-gradient(181deg, #af02fe, #af02fe);
+    border-radius: 10px;
+}
+@media screen and (max-width: 400px) {
+    .gallery_item{
+        width: 300px;
+        height: 200px;
+    }
 }
 
 @keyframes AnimationName {

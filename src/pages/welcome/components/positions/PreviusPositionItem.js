@@ -16,14 +16,14 @@ function PreviusPositionItem(props) {
       <div className={classes.role_description}>
         <p>{props.description}</p>
       </div>
-      <Fade triggerOnce direction={"center"} delay={300}>
-        <div className={classes.main_tools}>
-          <div className={classes.tool}>
+      <Fade className={classes.main_tools} triggerOnce direction={"center"} delay={300}>
+          <div className={classes.tool} style={{
+            borderBottom: props.border
+          }}>
             {props.tools.map((tool, index) => (
                 <img key={`k${index}`} src={tool} alt={'tech stack logo'} />
             ))}
           </div>
-        </div>
       </Fade>
     </li>
   );

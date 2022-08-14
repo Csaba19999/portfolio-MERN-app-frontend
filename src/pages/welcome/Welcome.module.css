@@ -98,3 +98,42 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (max-width: 1440px) {
+    .welcome_content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        'ck ck'
+        'sab sab'
+        'cp cp'
+        'pp pp'
+        'hs hs'
+        'ss ss'
+        'rg rg';
+    }
+    .softSkills{
+        justify-self: center;
+    }
+    .hardSkills{
+        justify-self: center;
+    }
+}
+@media screen and (max-width: 800px) {
+    .title_box{
+        width: 300px;
+    }
+    .knownCard h3{
+        width: 100%;
+    }
+    .image_box{
+        width: 200px;
+        height: 200px;
+    }
+    .title_box h1, .title_box h2{
+        font-size: 20px;
+    }
+}
+.welcome_content{
+    padding: 0px 10px;
+}

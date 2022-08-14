@@ -11,15 +11,44 @@
     transform: translate(-50%, 0);
     top: -20px;
 }
-.main_header img{
+.signature{
     width: 300px;
     filter: invert(100%);
 }
 .background_drop{
     height: 150px;
-    width: 100%;
+    width: min-content;
     z-index: 1099;
     position: fixed;
     background-image: linear-gradient(to bottom,#27273c 0% , transparent 100%);
 }
     /*background-image: linear-gradient(to top, #86377b 45%, #27273c 100%);*/
+
+
+@media screen and (max-width: 800px){
+    .main_header{
+        display: flex;
+        max-width: 1920px;
+        margin: 0 auto;
+        width: 100%;
+        z-index: 1100;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
+        top: -20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .signature{
+        width: 100%;
+        filter: invert(100%);
+    }
+    .background_drop{
+        height: 150px;
+        width: 100%;
+        z-index: 1099;
+        position: fixed;
+        background-image: linear-gradient(to bottom,#27273c 0% , transparent 100%);
+    }
+    
+}

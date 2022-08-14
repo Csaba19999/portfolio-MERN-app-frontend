@@ -75,7 +75,6 @@
 .description::-webkit-scrollbar-thumb {
   background-color: rgb(61, 145, 255);
   border-radius: 15px;
-  
 }
 .tools {
   display: flex;
@@ -127,4 +126,43 @@
 }
 .pageLink {
   background-color: #5151ff;
+}
+
+@media screen and (max-width: 1375px) {
+  .GalleryItemInspect {
+    max-width: 98%;
+    height: 800px;
+  }
+  .links a {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .GalleryItemInspect {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .GalleryItemInspect {
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% auto;
+    grid-template-areas:
+      "gc gc"
+      "gi gi";
+  }
+  .GalleryItemContent {
+    grid-area: gi;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto 200px auto auto auto;
+    grid-template-areas:
+      "ti ti"
+      "de de"
+      "pr pr"
+      "to to"
+      "li li";
+      height: 100%;
+  }
+  
 }

@@ -22,8 +22,7 @@ function CurrentPosition() {
             learned how to work with docker images
           </p>
         </div>
-        <Fade triggerOnce direction={"center"} delay={300}>
-          <div className={classes.main_tools}>
+        <Fade className={classes.main_tools} triggerOnce direction={"center"} delay={300}>
             <div className={classes.tool}>
               <img src="images/icons/tools/react.png" alt="Logo" />
               <img src="images/icons/tools/mongodb.png" alt="Logo" />
@@ -33,7 +32,6 @@ function CurrentPosition() {
               <img src="images/icons/tools/laravel.png" alt="Logo" />
               <img src="images/icons/tools/php.png" alt="Logo" />
             </div>
-          </div>
         </Fade>
       </div>
     </Card>

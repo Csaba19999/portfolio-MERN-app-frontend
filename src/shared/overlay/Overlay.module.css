@@ -1,6 +1,7 @@
 .overlay{
     margin: auto;
     width: 100%;
+    min-height: 1080px;
     height: 100%;
     background-image: linear-gradient(to top, #86377b 45%, #27273c 100%);
 }

@@ -1,0 +1,62 @@
+.hamburger_nav_icon {
+  position: absolute;
+  right: 30px;
+  z-index: 1000;
+}
+.hamburger_nav_icon img {
+  width: 40px;
+  filter: invert(100%);
+}
+.navigation {
+  width: 100%;
+  height: 110vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.nav_items {
+  z-index: 1100;
+  height: 100vh;
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.nav_items a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 10px;
+}
+
+.SlideInEnter {
+  opacity: 0;
+}
+.SlideInActive {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.SlideInExit {
+  opacity: 1;
+}
+.SlideInExitActive {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+@media screen and (max-width: 800px) {
+  .hamburger_nav_icon {
+    right: 50px;
+  }
+}

@@ -5,6 +5,7 @@ function NavItem(props) {
   const location = useLocation();
   return (
     <li
+      onClick={props.closeBurger}
       className={`${classes.nav_item} ${
         location.pathname === props.route ? classes.active : ""
       }`}

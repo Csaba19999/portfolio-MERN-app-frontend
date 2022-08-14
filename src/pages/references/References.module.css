@@ -1,0 +1,9 @@
+.references_page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1920px;
+    padding-top: 100px;
+    min-height: 82vh;
+}

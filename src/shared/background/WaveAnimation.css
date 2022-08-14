@@ -36,12 +36,25 @@
 }
 
 .noMargin{
-  position: absolute;
-  margin: 0 0;
+  margin: 0;
   bottom: 0;
-  height: 200px;
+  height: 100px;
   width: 100%;
   z-index: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .ocean {
+    height: 100px; /* change the height of the waves here */
+    margin-top: 700px;
+  }
+  .noMargin{
+    margin: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 0;
+  }
 }
 
 @keyframes wave {

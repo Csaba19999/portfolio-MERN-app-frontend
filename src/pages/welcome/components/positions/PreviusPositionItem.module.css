@@ -18,7 +18,6 @@
     grid-area: r;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-content: center;
     justify-content: flex-start;
     align-items: baseline;
@@ -76,3 +75,62 @@
     font-size: 16px;
     color: #27273c;
 }
+
+@media screen and (max-width: 1150px) {
+    .previus_card {
+      width: 600px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "c r"
+        "rd rd"
+        "mt mt";
+      justify-items: center;
+    }
+    .role{
+      justify-self: start;
+      align-self: start;
+      flex-wrap: wrap;
+    }
+    .role_description {
+      text-align: justify;
+      margin: 20px;
+    }
+    .main_tools {
+      width: 90%;
+      align-self: center;
+    }
+    .company {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-self: center;
+      align-items: flex-start;
+    }
+    .company p{
+      display: none;
+    }
+    .date{
+        margin-left: 0;
+        margin-right: auto;
+    }
+    .tool {
+      padding-bottom: 60px;
+      
+    }
+    .tool img {
+      margin: 10px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .previus_card {
+        width: 100%;
+    }
+    .tool {
+        height: 100%;
+      }
+      .tool img {
+        height: 30px;
+      }
+  }

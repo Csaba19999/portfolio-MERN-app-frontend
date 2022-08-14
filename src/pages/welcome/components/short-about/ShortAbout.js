@@ -16,6 +16,14 @@ function ShortAbout() {
         consectetur nisl nisi vel nisl. Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod,
         nisi nisl aliquet nisl, eget consectetur nisl nisi vel nisl.
+        <br />
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+        euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget
+        consectetur nisl nisi vel nisl. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod,
+        nisi nisl aliquet nisl, eget consectetur nisl nisi vel nisl.
       </div>
       <div className={classes.skills}>
           <SkillCard
