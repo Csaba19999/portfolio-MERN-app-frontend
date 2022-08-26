@@ -3,11 +3,15 @@ import classes from "./NavItem.module.css";
 
 function NavItem(props) {
   const location = useLocation();
+  const isActive = "/"+location.pathname.split("/")[1] === props.route;
+
+  console.log(location.pathname + " " +isActive);
+
   return (
     <li
       onClick={props.closeBurger}
       className={`${classes.nav_item} ${
-        location.pathname === props.route ? classes.active : ""
+        isActive ? classes.active : ""
       }`}
     >
       <NavLink to={props.route}>{props.name}</NavLink>

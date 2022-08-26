@@ -7,6 +7,7 @@ function NavLink(props){
                 <NavItem name={'kezdőlap'} route='/'/>
                 <NavItem name={'kapcsolat'} route='/contact'/>
                 <NavItem name={'referenciák'} route='/references'/>
+                <NavItem name={"snippet's"} route='/codeSnippet'/>
             </ul>
         </nav>
     );

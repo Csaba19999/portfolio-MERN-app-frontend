@@ -5,7 +5,8 @@ import Welcome from "./pages/welcome/Welcome";
 import Contact from "./pages/contact/Contact";
 import References from "./pages/references/References";
 import NotFound from "./pages/404/NotFound";
-
+import CodeSnippet from "./pages/codeSnippet/CodeSnippet";
+import CodeSnippetView from "./pages/CodeSnippetView/CodeSnippetView";
 import "./App.css";
 
 
@@ -20,6 +21,12 @@ function App() {
         </Route>
         <Route path="/references" exact>
           <References />
+        </Route>
+        <Route path="/codeSnippet" exact>
+          <CodeSnippet />
+        </Route>
+        <Route path="/codeSnippet/:id" exact>
+          <CodeSnippetView />
         </Route>
         <Route path="/notFound" exact>
           <NotFound />

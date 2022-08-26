@@ -58,6 +58,11 @@ function BurgerNavLinks() {
                 name={"referenciák"}
                 route="/references"
               />
+              <NavItem
+                closeBurger={toggleNav}
+                name={"snippet's"}
+                route="/CodeSnnipet"
+              />
             </ul>
           </Fade>
         </nav>
