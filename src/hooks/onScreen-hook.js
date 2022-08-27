@@ -1,17 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function useOnScreen(ref) {
+export default function useIsMobile(mobileWidth) {
+    const [width, setWidth] = useState(window.innerWidth);
+    const [height, setHeight] = useState(window.innerHeight);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < mobileWidth);
+    
+    const updatePageSize = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+      setIsMobile(width < mobileWidth);
+    };
+    window.addEventListener("resize", updatePageSize);
 
-  const [isIntersecting, setIntersecting] = useState(false)
-
-  const observer = new IntersectionObserver(
-    ([entry]) => setIntersecting(entry.isIntersecting)
-  )
-
-  useEffect(() => {
-    observer.observe(ref.current)
-    return () => { observer.disconnect() }
-  }, [])
-
-  return isIntersecting
+  return {
+    isMobile,
+    height,
+    width,
+  }
 }
