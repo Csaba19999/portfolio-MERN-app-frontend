@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import React, { useLayoutEffect } from "react";
+import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 
 import Welcome from "./pages/welcome/Welcome";
 import Contact from "./pages/contact/Contact";
@@ -11,6 +11,11 @@ import "./App.css";
 
 
 function App() {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
       <Switch>
         <Route path="/" exact>

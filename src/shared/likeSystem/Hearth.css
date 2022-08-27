@@ -1,0 +1,7 @@
+.hearth{
+    width: 100%;
+}
+.hearth svg path{
+    cursor: pointer;
+    color: rgb(221, 221, 221);
+}

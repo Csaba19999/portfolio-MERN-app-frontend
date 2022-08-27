@@ -1,0 +1,12 @@
+.like_system_icon{
+    width: min-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.like_system_icon p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}

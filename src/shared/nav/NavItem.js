@@ -5,8 +5,6 @@ function NavItem(props) {
   const location = useLocation();
   const isActive = "/"+location.pathname.split("/")[1] === props.route;
 
-  console.log(location.pathname + " " +isActive);
-
   return (
     <li
       onClick={props.closeBurger}

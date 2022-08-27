@@ -61,7 +61,7 @@ function BurgerNavLinks() {
               <NavItem
                 closeBurger={toggleNav}
                 name={"snippet's"}
-                route="/CodeSnnipet"
+                route="/codeSnippet"
               />
             </ul>
           </Fade>

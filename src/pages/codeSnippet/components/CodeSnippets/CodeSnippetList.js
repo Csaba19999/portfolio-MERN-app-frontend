@@ -2,11 +2,17 @@ import { Fragment } from "react";
 import CodeSnippetItem from "./CodeSnippetItem";
 import classes from "./CodeSnippetList.module.css";
 
+
+
+
 function CodeSnippetList(props) {
   return (
     <Fragment>
-      <h1>CodeSnippetList</h1>
-      <CodeSnippetItem />
+      <ul className={classes.code_snippet_list}>
+        {props.DUMMY_CODE_SNIPPETS.map((codeSnippet) => (
+            <CodeSnippetItem key={codeSnippet.id} codeSnippet={codeSnippet} />
+        ))}
+      </ul>
     </Fragment>
   );
 }

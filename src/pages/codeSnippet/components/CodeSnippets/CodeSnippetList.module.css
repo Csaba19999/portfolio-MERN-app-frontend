@@ -1,0 +1,13 @@
+.Code_Snippet_Page{
+    min-height: 100vh;
+}
+.code_snippet_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: unset;
+    padding-inline-start: 0px;
+    list-style: none;
+    margin-bottom: 50px;
+}
