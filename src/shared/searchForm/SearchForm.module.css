@@ -12,11 +12,26 @@
   border-radius: 15px;
   overflow: hidden;
 }
+.lable{
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  padding-bottom: 10px;
+}
 .search_filde_box {
-  width: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.technology_box,
+.version_box,
+.favorite_box {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
 }
 .search_filde {
-  width: 40%;
+  width: 50%;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
@@ -27,37 +42,40 @@
 }
 .search_filde:focus {
   width: calc(100% - 35px);
-  border-radius: 0px;
+  border-radius: 10px 0px 0px 0px;
 }
 .technology,
-.version {
-  width: 15%;
+.version,
+.favorite {
+  width: 100%;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-.technology:focus,
-.version:focus,
-.search_filde:focus {
-  outline: none;
-}
-.version {
+.favorite {
   border-radius: 0px 10px 10px 0px;
   overflow: hidden;
+}
+.technology:focus,
+.version:focus,
+.search_filde:focus,
+.favorite:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 1280px) {
   .search_filde_box {
-    width: 100%;
+    width: 50%;
   }
   .search_filde {
     width: calc(100% - 35px);
-    border-radius: 0px;
+    border-radius: 10px 0px 0px 0px;
   }
   .technology,
-  .version {
-    width: 30%;
+  .version,
+  .sort {
+    width: 100%;
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
@@ -66,36 +84,53 @@
 }
 @media screen and (max-width: 800px) {
   .Search_Form form {
+    border-radius: 0;
     display: grid;
-    grid-template-columns: 50% 25% 25%;
-    grid-template-areas: 
-    "sfb te ve";
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "sfb te"
+      "ve fa";
   }
   .search_filde_box {
     grid-area: sfb;
   }
-  .technology{
+  .technology_box {
     grid-area: te;
   }
-  .version {
+  .version_box {
     grid-area: ve;
   }
+  .favorite_box {
+    grid-area: fa;
+  }
+  .technology_box,
+  .version_box,
+  .favorite_box,
+  .search_filde_box {
+    width: 100%;
+  }
   .technology,
-  .version {
+  .version,
+  .favorite {
     width: 100%;
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
+  .favorite {
+    border-radius: 0px 0px 0px 0px;
+    overflow: hidden;
+  }
 }
 @media screen and (max-width: 650px) {
   .Search_Form form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    "sfb sfb"
-    "te ve";
+    grid-template-areas:
+      "sfb sfb"
+      "te ve"
+      "fa fa";
   }
   .search_filde_box {
     grid-area: sfb;
@@ -105,10 +140,13 @@
     width: calc(100% - 35px);
     border-radius: 0px;
   }
-  .technology{
+  .technology_box {
     grid-area: te;
   }
-  .version {
+  .version_box {
     grid-area: ve;
+  }
+  .favorite_box{
+    grid-area: fa;
   }
 }

@@ -32,6 +32,11 @@
 .date {
   grid-area: date;
 }
+.hearth_icons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .code_snippet_item img {
   margin-top: 12px;
   width: 100px;
@@ -76,6 +81,7 @@
 .hearth {
   justify-self: end;
   display: flex;
+  align-items: center;
   margin: 0px 30px;
   gap: 20px;
 }

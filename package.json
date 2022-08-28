@@ -9,6 +9,7 @@
     "react": "^18.2.0",
     "react-awesome-reveal": "^3.8.1",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.3.0",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.3.3",
     "react-scripts": "5.0.1",

@@ -51,6 +51,9 @@
 .like_box {
   justify-self: end;
   align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .left_box,
 .right_box {

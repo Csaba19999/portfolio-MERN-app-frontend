@@ -27,16 +27,7 @@ function GalleryItem(props) {
 
   return (
     <Fragment>
-      <Fade
-        triggerOnce
-        direction="down"
-        duration={500}
-        delay={
-          props.animationDelay
-            ? props.animationDelay
-            : parseInt(props.delay + "00")
-        }
-      >
+      <Fade triggerOnce direction="down" duration={500} delay={0}>
         <li
           className={classes.gallery_item}
           onMouseEnter={showMoodleButton}
@@ -48,7 +39,10 @@ function GalleryItem(props) {
           {isOnMouse && isMobile && (
             <Fragment>
               <p>{props.title}</p>
-              <a href={props.pageLink ? props.pageLink : props.githubLink} target={"_blank"}>
+              <a
+                href={props.pageLink ? props.pageLink : props.githubLink}
+                target={"_blank"}
+              >
                 Megtekintés
               </a>
             </Fragment>

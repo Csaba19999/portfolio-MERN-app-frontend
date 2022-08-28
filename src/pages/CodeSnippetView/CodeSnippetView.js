@@ -4,6 +4,7 @@ import { atomDark as CodeStyle } from "react-syntax-highlighter/dist/cjs/styles/
 import LikeSystem from "../../shared/likeSystem/LikeSystem";
 import classes from "./CodeSnippetView.module.css";
 import Card from "../../shared/overlay/Card";
+import FavoriteSystem from "../../shared/FavoriteSystem/FavoriteSystem";
 
 const DUMMY_CODE_SNIPPETS = [
   {
@@ -117,8 +118,13 @@ function CodeSnippetView() {
   const codeSnippet = DUMMY_CODE_SNIPPETS.find((snippet) => snippet.id === id);
 
   const onHearthLikeChanges = (id) => {
+    //külön custome hook kel majd a likenak és a favorite nek.
     console.log(id);
   };
+  const onFavoriteChanges = (id) => {
+    //külön custome hook kel majd a likenak és a favorite nek.
+    console.log(id);
+  }
 
   return (
     <div className={classes.Code_Snippet_View}>
@@ -152,6 +158,11 @@ function CodeSnippetView() {
           {codeSnippet.description}
         </p>
         <div className={classes.like_box}>
+        <FavoriteSystem
+            id={id}
+            onClickHandeler={onFavoriteChanges}
+            color="black"
+          />
           <LikeSystem
             id={id}
             onClickHandeler={onHearthLikeChanges}

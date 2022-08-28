@@ -18,6 +18,9 @@ function Footer() {
           <li>
             <NavLink to="/references">referenciák</NavLink>
           </li>
+          <li>
+            <NavLink to="/codeSnippet">snippet's</NavLink>
+          </li>
         </ul>
       </div>
       <div className={classes.footer_description}>
