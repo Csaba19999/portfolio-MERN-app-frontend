@@ -13,6 +13,7 @@ function Card(props) {
       ${props.position === "right" && classes.right}
       ${props.position === "left" && classes.left}
       ${props.position === "center" && classes.center}
+      ${props.className ? props.className : ''}
       `}
       style={{ backgroundColor: props.background ? props.background : "white" }}
     >

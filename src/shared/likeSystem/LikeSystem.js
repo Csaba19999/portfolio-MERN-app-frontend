@@ -30,7 +30,7 @@ function LikeSystem(props) {
     <div className={classes.like_system}>
       <div className={classes.like_system_icon}>
         <Hearth color={color} onHarthClick={onHarthClick} />
-        <p>{likesCount}</p>
+        <p style={{color: (props.color ? props.color : "black")}}>{likesCount}</p>
       </div>
     </div>
   );

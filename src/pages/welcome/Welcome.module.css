@@ -133,7 +133,9 @@
     .title_box h1, .title_box h2{
         font-size: 20px;
     }
+    .welcome_content{
+        width: 89%;
+        padding: 0px 0px;
+    }
 }
-.welcome_content{
-    padding: 0px 10px;
-}
+

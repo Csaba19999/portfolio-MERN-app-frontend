@@ -46,7 +46,8 @@ function CodeSnippet() {
   const onSearch = (event) => {
     //requestet kell indítani majd a backendnek paraméterekkel!
     //fel kell tölteni adatbázisból a kerső mezót. kapcsolattal a verzók és a technológia alapján
-    let filteredItems = DUMMY_CODE_SNIPPETS.filter((item) => {
+    let filteredItems = [];
+    filteredItems = DUMMY_CODE_SNIPPETS.filter((item) => {
         return item.technology.toLowerCase().includes(event.target.value.toLowerCase());
         }
     );
@@ -56,7 +57,7 @@ function CodeSnippet() {
   return (
     <Fragment>
       <div className={classes.Code_Snippet_Page}>
-        <h1>Code Snnipets</h1>
+        <h1>Keress a snippetek között</h1>
         <SearchForm onChangeHandeler={onSearch} />
         <CodeSnippetList DUMMY_CODE_SNIPPETS={codeSnippetItems} />
       </div>

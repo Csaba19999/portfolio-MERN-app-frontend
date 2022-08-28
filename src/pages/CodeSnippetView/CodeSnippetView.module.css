@@ -1,6 +1,160 @@
-.Code_Snippet_View{
-    min-height: 100vh;
+.Code_Snippet_View {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1920px;
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-auto-rows: min-content auto;
+  justify-content: center;
+  grid-template-areas:
+    "head head"
+    "left right";
+  gap: 40px;
+}
+.title {
+  grid-area: head;
+}
+.left_box {
+  grid-area: left;
+}
+.right_box {
+  grid-area: right;
+}
+.right_box {
+  display: grid;
+  grid-template-columns: min-content auto auto;
+  grid-auto-rows: min-content auto;
+  grid-template-areas:
+    "tb de de"
+    ". da lb";
+  gap: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+}
+.technology_box {
+  grid-area: tb;
+}
+.description {
+  grid-area: de;
+}
+.like_box {
+  grid-area: lb;
+}
+.date {
+  grid-area: da;
+}
+.technology_box img {
+  border-radius: 10px;
+}
+.like_box {
+  justify-self: end;
+  align-self: center;
+}
+.left_box,
+.right_box {
+  width: 90%;
+  margin: 0 auto;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+.codeTitle {
+  margin: 0;
+}
+.code_box p {
+  font-family: "Times New Roman", Times, serif;
+}
+.description {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+}
+.description::before {
+  content: "Leírás";
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #4a1065;
+  margin: 0;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.technology {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #000000;
+  margin: 0px;
+}
+.version {
+  font-size: 16px;
+  font-weight: lighter;
+  font-family: "Arial, Helvetica, sans-serif";
+  margin: 0px;
+}
+.title h1 {
+  width: 95%;
+  margin: 30px auto;
+  color: rgb(200, 175, 244);
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.date {
+  align-self: center;
+}
+@media screen and (max-width: 1050px) {
+  .Code_Snippet_View {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: min-content auto;
+    justify-content: center;
+    grid-template-areas:
+      "head head"
+      "right right"
+      "left left";
+    gap: 0;
+  }
+  .right_box {
+    position: unset;
+    top: 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .Code_Snippet_View {
     width: 100%;
-    max-width: 1920px;
-    margin-top: 150px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: min-content;
+    justify-content: center;
+    grid-template-areas:
+      "head"
+      "right"
+      "left";
+    gap: 0;
+  }
+  .right_box {
+    display: grid;
+    grid-template-columns: auto min-content;
+    grid-auto-rows: auto;
+    grid-template-areas:
+      "tb da"
+      "de de"
+      ". lb";
+    gap: 20px;
+  }
+  .left_box,
+  .right_box {
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    padding: 30px;
+    margin-bottom: 50px;
+  }
+  .date{
+    align-self: start;
+  }
 }

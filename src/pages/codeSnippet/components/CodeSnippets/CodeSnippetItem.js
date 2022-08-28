@@ -15,8 +15,9 @@ function CodeSnippetItem(props) {
   } = props.codeSnippet;
 
   const onHearthLikeChanges = (id) => {
-    console.log(id);
-  }
+    console.log("snippet item ",id);
+  };
+
 
   return (
     <li className={classes.code_snippet_item}>
@@ -30,7 +31,11 @@ function CodeSnippetItem(props) {
       <p className={classes.date}>közzétéve: {date}</p>
       <div className={classes.hearth}>
         <NavLink to={`/codeSnippet/${id}`}>Megtekintés</NavLink>
-        <LikeSystem onClickHandeler={onHearthLikeChanges} id={id} likes={likes} />
+        <LikeSystem
+          onClickHandeler={onHearthLikeChanges}
+          id={id}
+          likes={likes}
+        />
       </div>
     </li>
   );

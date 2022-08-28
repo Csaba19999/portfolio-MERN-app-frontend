@@ -102,3 +102,36 @@
   justify-self: end;
   align-self: center;
 }
+
+@media screen and (max-width: 650px) {
+  .code_snippet_item {
+    height: auto;
+    display: grid;
+    grid-template-rows: min-content min-content 150px auto auto;
+    grid-template-areas:
+      "title title"
+      "img technology"
+      "description description"
+      "hearth hearth"
+      "date date";
+    margin: 15px 0px;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+  }
+  .hearth {
+    width: 100%;
+    justify-self: end;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    gap: 0;
+  }
+  .code_snippet_item img {
+    margin-top: 0;
+  }
+  .title {
+    margin: 0;
+  }
+}
