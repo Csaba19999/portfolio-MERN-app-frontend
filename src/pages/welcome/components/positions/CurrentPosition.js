@@ -1,39 +1,72 @@
+import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { useHttpClient } from "../../../../hooks/http-hook";
+import LoadingSpinner from "../../../../shared/loadingSpinner/LoadingSpinner";
 import Card from "../../../../shared/overlay/Card";
 import classes from "./CurrentPosition.module.css";
 
 function CurrentPosition() {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadedPosition, setLoadedPosition] = useState({});
+  const [loadedTools, setLoadedTools] = useState([]);
+
+  useEffect(() => {
+    const fetchPosition = async () => {
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY+"/positions/current"
+        );
+        setLoadedPosition(responseData);
+        const tools = [];
+        for (let index = 0; index < responseData.tools.length; index++) {
+          const imgJSX = <img key={index+"logo"} src={responseData.tools[index]} alt={"logo"} />;
+          tools.push(imgJSX);
+        }
+        setLoadedTools(tools);
+      } catch (error) {
+        console.log(error.messege);
+      }
+    };
+    fetchPosition();
+  }, [sendRequest]);
+
   return (
     <Card position="center" title="Jelenelegi munkahelyem">
-      <div className={classes.current_card}>
-        <div className={classes.company}>
-          <img src="./images/icons/api.png" alt="Logo" />
-          <p>OTP</p>
+      {isLoading && (
+        <LoadingSpinner spinnerSize={90} />
+      )}
+      {!isLoading && (
+        <div className={classes.current_card}>
+          <div className={classes.company}>
+            <img
+              src={loadedPosition.company_logo}
+              alt={`${loadedPosition.company} logo`}
+            />
+
+            <p>{loadedPosition.company}</p>
+          </div>
+          <div className={classes.role}>
+            <p>{loadedPosition.role}</p>
+          </div>
+          <div className={classes.role_description}>
+            <p>{loadedPosition.description}</p>
+          </div>
+          <Fade
+            className={classes.main_tools}
+            triggerOnce
+            direction={"center"}
+            delay={300}
+          >
+            <div className={classes.tool}>{loadedTools}</div>
+          </Fade>
         </div>
-        <div className={classes.role}>
-          <p>Frontend developer</p>
+      )}
+      {error && (
+        <div className={classes.error}>
+          <p>{error}</p>
+          <button onClick={clearError}>X</button>
         </div>
-        <div className={classes.role_description}>
-          <p>
-            My jobe was develope and securing the frontend in a largeMy jobe was
-            develope and securing the frontend in a large team. I lMy jobe was
-            develope and securing the frontend in a large team. I lMy jobe was
-            develope and securing the frontend in a large team. I l team. I
-            learned how to work with docker images
-          </p>
-        </div>
-        <Fade className={classes.main_tools} triggerOnce direction={"center"} delay={300}>
-            <div className={classes.tool}>
-              <img src="images/icons/tools/react.png" alt="Logo" />
-              <img src="images/icons/tools/mongodb.png" alt="Logo" />
-              <img src="images/icons/tools/node.png" alt="Logo" />
-              <img src="images/icons/tools/express.png" alt="Logo" />
-              <img src="images/icons/tools/mysql.png" alt="Logo" />
-              <img src="images/icons/tools/laravel.png" alt="Logo" />
-              <img src="images/icons/tools/php.png" alt="Logo" />
-            </div>
-        </Fade>
-      </div>
+      )}
     </Card>
   );
 }
