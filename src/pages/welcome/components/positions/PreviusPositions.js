@@ -68,7 +68,6 @@ function PreviusPositions() {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/positions/previus"
         );
-        console.log(responseData);
         setLoadedPositions(responseData);
       } catch (error) {
         console.log(error.messege);
@@ -76,8 +75,6 @@ function PreviusPositions() {
     };
     fetchPositions();
   }, [sendRequest]);
-
-  console.log(loadedPositions);
 
   return (
     <Card position="center" title="Előző munkahelyeim">
@@ -102,7 +99,7 @@ function PreviusPositions() {
                 <PreviusPositionItem
                   border={borderType}
                   description={item.description}
-                  key={item.id}
+                  key={item.id+""+index}
                   company={item.company}
                   date={item.date}
                   role={item.role}

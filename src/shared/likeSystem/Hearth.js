@@ -1,11 +1,11 @@
-import "./Hearth.css";
+import classes from "./Hearth.module.css";
 
 function Hearth(props) {
 
   return (
     <div className="hearth">
       <svg
-        className="Layer_1"
+        className={classes.Layer_1}
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="32 -51 70 200"

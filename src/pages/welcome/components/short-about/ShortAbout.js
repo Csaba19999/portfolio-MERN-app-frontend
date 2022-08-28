@@ -1,60 +1,64 @@
+import { Fragment, useEffect, useState } from "react";
 import { Fade } from "react-reveal";
+import { useHttpClient } from "../../../../hooks/http-hook";
+import LoadingSpinner from "../../../../shared/loadingSpinner/LoadingSpinner";
 import classes from "./ShortAbout.module.css";
 import SkillCard from "./SkillCard";
 
 function ShortAbout() {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [aboutData, setAbout] = useState();
+
+  useEffect(() => {
+    const fetchAbout = async () => {
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/about"
+        );
+        console.log(responseData);
+        setAbout(responseData);
+      } catch (error) {
+        console.log(error.messege);
+      }
+    };
+    fetchAbout();
+  }, [sendRequest]);
+
   return (
     <div className={classes.short_about}>
-      <div className={classes.image_box}>
-        <img src={"./images/img/me.png"} alt="" />
-      </div>
+      {isLoading && (
+        <div className={classes.loading_spinner}>
+          <LoadingSpinner spinnerSize={90} />
+        </div>
+      )}
+      {aboutData && (
+        <Fragment>
+          <div className={classes.image_box}>
+            <img src={"./images/img/me.png"} alt="" />
+          </div>
 
-      <div className={classes.text_box}>
-        <h3>Had mutassam be magam.</h3>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget
-        consectetur nisl nisi vel nisl. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod,
-        nisi nisl aliquet nisl, eget consectetur nisl nisi vel nisl.
-        <br />
-        <br />
-        <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget
-        consectetur nisl nisi vel nisl. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod,
-        nisi nisl aliquet nisl, eget consectetur nisl nisi vel nisl.
-      </div>
-      <div className={classes.skills}>
-          <SkillCard
-          title="Csapatmunka"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget
-            consectetur nisl nisi vel nisl."
-          image="./images/icons/fork.png"
-        />
-        <SkillCard
-          title="REST FULL"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget
-            consectetur nisl nisi vel nisl."
-          image="./images/icons/api.png"
-        />
-        <SkillCard
-          title="OOP"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget
-            consectetur nisl nisi vel nisl."
-          image="./images/icons/oop.png"
-        />
-        <SkillCard
-          title="UX / Desing"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            euismod, nisi vel consectetur euismod, nisi nisl aliquet nisl, eget
-            consectetur nisl nisi vel nisl."
-          image="./images/icons/ux.png"
-        />
-      </div>
+          <div className={classes.text_box}>
+            <h3>{aboutData.about.title}</h3>
+            <pre>{aboutData.about.description}</pre>
+          </div>
+          <div className={classes.skills}>
+            {aboutData.skillCards.map((skill, index) => (
+              <SkillCard
+                title={skill.title}
+                key={index + "card"}
+                description={skill.description}
+                image={skill.image}
+              />
+            ))}
+          </div>
+        </Fragment>
+      )}
+      {error && (
+        <div className={classes.error_message}>
+          <p>{error.message}</p>
+          <button onClick={clearError}>Close</button>
+        </div>
+      )}
     </div>
   );
 }
