@@ -2,7 +2,7 @@ import "./Star.css";
 
 function Star(props) {
   return (
-    <div>
+    <div className="star">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="32 -40 70 200"
