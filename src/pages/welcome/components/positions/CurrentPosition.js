@@ -31,7 +31,7 @@ function CurrentPosition() {
   }, [sendRequest]);
 
   return (
-    <Card position="center" title="Jelenelegi munkahelyem">
+    <Card position="center" title={loadedPosition?.title}>
       {isLoading && (
         <LoadingSpinner spinnerSize={90} />
       )}

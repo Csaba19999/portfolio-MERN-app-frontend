@@ -1,6 +1,6 @@
 import classes from "./CvDownload.module.css";
 
-function CvDownload() {
+function CvDownload(props) {
   return (
     <div className={classes.cv}>
       <a

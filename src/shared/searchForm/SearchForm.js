@@ -1,6 +1,70 @@
+import { useEffect, useState } from "react";
+import { useHttpClient } from "../../hooks/http-hook";
 import classes from "./SearchForm.module.css";
 
 function SearchForm(props) {
+  const [technology, setTechnology] = useState("none");
+  const [version, setVersion] = useState("none");
+  const [sort, setSort] = useState("none");
+  const [searchFilde, setSearchFilde] = useState("none");
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadedSearchParams, setLoadedSearchParams] = useState([]);
+  const [loadedVersions, setLoadedVersions] = useState([]);
+
+  useEffect(() => {
+    const fetchSearchParams = async () => {
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/shearch_load"
+        );
+        setLoadedSearchParams(responseData);
+      } catch (error) {
+        console.log(error.messege);
+      }
+    };
+    fetchSearchParams();
+  }, [sendRequest]);
+
+  const versionAndTechnology = () => {
+    let versionsArray = [];
+    loadedSearchParams.forEach((element) => {
+      if (element.technology === technology) {
+        element.versions.forEach((version) => {
+          versionsArray.push(version);
+        });
+      }if (technology === "none") {
+        setVersion("none");
+      }
+    });
+    setLoadedVersions(versionsArray);
+  };
+
+  const onSearchFildeChange = (event) => {
+    setSearchFilde(event.target.value);
+  };
+  const onTechnologyChange = (event) => {
+    setTechnology(event.target.value);
+  };
+  const onVersionChange = (event) => {
+    setVersion(event.target.value);
+  };
+  const onSortChange = (event) => {
+    setSort(event.target.value);
+  };
+
+  useEffect(() => {
+    const onSubmit = () => {
+      props.onChangeHandeler({
+        technology: technology,
+        version: version,
+        sort: sort,
+        searchFilde: searchFilde || "none",
+      });
+    };
+    onSubmit();
+    versionAndTechnology();
+  }, [technology, version, sort, searchFilde]);
+
   return (
     <div className={classes.Search_Form}>
       <form>
@@ -13,23 +77,24 @@ function SearchForm(props) {
             className={classes.search_filde}
             type="text"
             placeholder="Search"
+            onChange={onSearchFildeChange}
           />
         </div>
         <div className={classes.technology_box}>
           <label className={classes.lable} htmlFor="technology">
-            language
+            technológia
           </label>
           <select
             className={classes.technology}
             name="technology"
-            onChange={props.onChangeHandeler}
+            onChange={onTechnologyChange}
           >
-            <option value="">minden</option>
-            <option value="javascript">Javascript</option>
-            <option value="react">React</option>
-            <option value="redux">Redux</option>
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
+            <option value="none">minden</option>
+            {loadedSearchParams.map((item) => (
+              <option key={item.technology} value={item.technology}>
+                {item.technology}
+              </option>
+            ))}
           </select>
         </div>
         <div className={classes.version_box}>
@@ -39,11 +104,14 @@ function SearchForm(props) {
           <select
             className={classes.version}
             name="version"
-            onChange={props.onChangeHandeler}
+            onChange={onVersionChange}
           >
-            <option value="">minden</option>
-            <option value="ES6">ES6</option>
-            <option value="ES5">ES5</option>
+            <option value="none">minden</option>
+            {loadedVersions.map((item, index) => (
+              <option key={item + "" + index} value={item}>
+                {item}
+              </option>
+            ))}
           </select>
         </div>
         <div className={classes.favorite_box}>
@@ -53,9 +121,9 @@ function SearchForm(props) {
           <select
             className={classes.favorite}
             name="favorite"
-            onChange={props.onChangeHandeler}
+            onChange={onSortChange}
           >
-            <option value="">alap</option>
+            <option value="none">alap</option>
             <option value="ertekeles">értékelés</option>
             <option value="date">dátum</option>
           </select>

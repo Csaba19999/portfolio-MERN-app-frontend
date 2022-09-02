@@ -9,10 +9,12 @@ function Form() {
   const [messageIsValid, setMessageIsValid] = useState(true);
   const [enteredMessage, setEnteredMessage] = useState("");
   const [rerenderCounter, setRerenderCounter] = useState(0);
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [emailIsValid, setEmailIsValid] = useState(true);
 
   useEffect(() => {
-    if(rerenderCounter >= 1){
-        formValiti();
+    if (rerenderCounter >= 1) {
+      formValiti();
     }
     setRerenderCounter(rerenderCounter + 1);
   }, [messageIsValid, titlelIsValid, nameIsValid]);
@@ -35,6 +37,18 @@ function Form() {
     } else {
       setMessageIsValid(false);
     }
+
+    if (
+      enteredEmail
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
+    ) {
+      setEmailIsValid(true);
+    } else {
+      setEmailIsValid(false);
+    }
   };
 
   const handleNameChange = (event) => {
@@ -46,29 +60,41 @@ function Form() {
   const handleMessageChange = (event) => {
     setEnteredMessage(event.target.value);
   };
+  const handleEmailChange = (event) => {
+    setEnteredEmail(event.target.value);
+  };
 
   const submitHandeler = (event) => {
     event.preventDefault();
     formValiti();
     if (
-      (nameIsValid === false) ||
-      (titlelIsValid === false) ||
-      (messageIsValid === false)
+      nameIsValid === false ||
+      titlelIsValid === false ||
+      messageIsValid === false ||
+      emailIsValid === false
     ) {
-      console.log(
-        "name:",
-        nameIsValid,
-        enteredName,
-        "title:",
-        titlelIsValid,
-        enteredTitle,
-        "massege:",
-        messageIsValid,
-        enteredMessage
-      );
-      console.log("invalide user inputs");
+      console.log("Error");
+      return;
     } else {
-      console.log("valid user inputs");
+      const emailSend = async () => {
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: enteredName,
+            title: enteredTitle,
+            email: enteredEmail,
+            message: enteredMessage,
+          }),
+        };
+
+        const endpoint =
+        process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/contact"; ///change to env
+        const response = await fetch(endpoint, options);
+      };
+      emailSend();
     }
   };
 
@@ -103,6 +129,21 @@ function Form() {
         {!titlelIsValid && (
           <p className={`${titlelIsValid ? "" : classes.invalidError}`}>
             Hibás tárgy (4-50 karakter)
+          </p>
+        )}
+      </section>
+      <section className={classes.email}>
+        <label htmlFor="email">E-mail</label>
+        <input
+          onChange={handleEmailChange}
+          className={`${emailIsValid ? "" : classes.invalid}`}
+          id="email"
+          name="email"
+          placeholder="Email"
+        />
+        {!emailIsValid && (
+          <p className={`${emailIsValid ? "" : classes.invalidError}`}>
+            Hibás e-mail cím
           </p>
         )}
       </section>

@@ -27,9 +27,7 @@ function SoftSkillsList() {
   return (
     <Card title="Soft skills" position="right">
       {isLoading && (
-        <div className={classes.loading_spinner}>
           <LoadingSpinner spinnerSize={90} />
-        </div>
       )}
       {!isLoading && (
         <ul className={classes.soft_skills_list}>

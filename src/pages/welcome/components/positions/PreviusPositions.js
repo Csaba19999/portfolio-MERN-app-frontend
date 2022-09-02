@@ -6,56 +6,6 @@ import Card from "../../../../shared/overlay/Card";
 import PreviusPositionItem from "./PreviusPositionItem";
 import classes from "./PreviusPositions.module.css";
 
-const DUMMY_DATA = [
-  {
-    id: "a1",
-    company: "OTP",
-    logo: "./images/icons/api.png",
-    role: "Frontend developer",
-    description:
-      "My jobe was develope and securing the frontend in a large team. I lMy jobe was develope and securing the frontend in a large team. I lMy jobe was develope and securing the frontend in a large team. I l team. I learned how to work with docker images",
-    tools: [
-      "images/icons/tools/react.png",
-      "images/icons/tools/mongodb.png",
-      "images/icons/tools/node.png",
-      "images/icons/tools/express.png",
-      "images/icons/tools/mysql.png",
-      "images/icons/tools/laravel.png",
-      "images/icons/tools/php.png",
-    ],
-    date: "2019-2020",
-  },
-  {
-    id: "a2",
-    company: "Google",
-    logo: "./images/icons/api.png",
-    role: "Frontend developer",
-    description:
-      "My jobe was develope and securing the frontend in a large team. I lMy jobe was develope and securing the frontend in a large team. I lMy jobe was develope and securing the frontend in a large team. I l team. I learned how to work with docker images",
-    tools: [
-      "images/icons/tools/react.png",
-      "images/icons/tools/mongodb.png",
-      "images/icons/tools/node.png",
-      "images/icons/tools/express.png",
-      "images/icons/tools/mysql.png",
-    ],
-    date: "2019-2021",
-  },
-  {
-    id: "a3",
-    company: "Facebook",
-    logo: "./images/icons/api.png",
-    role: "Frontend developer",
-    description:
-      "My jobe was develope and securing the frontend in a large team. I lMy jobe was develope and securing the frontend in a large team. I lMy jobe was develope and securing the frontend in a large team. I l team. I learned how to work with docker images",
-    tools: [
-      "images/icons/tools/react.png",
-      "images/icons/tools/mongodb.png",
-      "images/icons/tools/node.png",
-    ],
-    date: "2019-2023",
-  },
-];
 
 function PreviusPositions() {
   const { isMobile } = useIsMobile(1150);
@@ -77,11 +27,9 @@ function PreviusPositions() {
   }, [sendRequest]);
 
   return (
-    <Card position="center" title="Előző munkahelyeim">
+    <Card position="center" title={"Előző munkahelyeim"}>
       {isLoading && (
-        <div className="center">
           <LoadingSpinner spinnerSize={90} />
-        </div>
       )}
       {loadedPositions && (
         <div className={classes.previusPositions}>

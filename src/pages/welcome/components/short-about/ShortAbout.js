@@ -15,7 +15,6 @@ function ShortAbout() {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/about"
         );
-        console.log(responseData);
         setAbout(responseData);
       } catch (error) {
         console.log(error.messege);
@@ -27,16 +26,13 @@ function ShortAbout() {
   return (
     <div className={classes.short_about}>
       {isLoading && (
-        <div className={classes.loading_spinner}>
           <LoadingSpinner spinnerSize={90} />
-        </div>
       )}
       {aboutData && (
         <Fragment>
           <div className={classes.image_box}>
             <img src={"./images/img/me.png"} alt="" />
           </div>
-
           <div className={classes.text_box}>
             <h3>{aboutData.about.title}</h3>
             <pre>{aboutData.about.description}</pre>

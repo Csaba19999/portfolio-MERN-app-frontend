@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Zoom, Fade } from "react-awesome-reveal";
 import WaveAnimation from "../../shared/background/WaveAnimation";
 import CvDownload from "./components/cv/CvDownload";
@@ -12,9 +12,10 @@ import PreviusPositions from "./components/positions/PreviusPositions";
 import ReferencesGallery from "./components/references-gallery/ReferencesGallery";
 
 function Welcome() {
+
   return (
     <Fragment>
-      <div className={classes.title_box}>
+        <div className={classes.title_box}>
         <Fade triggerOnce direction="down" duration={1000}>
           <h1 className={classes.title}>Szervusz a nevem Ménesi Csaba</h1>
           <h2 className={classes.title}>És frontend fejlesztő vagyok.</h2>
@@ -26,6 +27,7 @@ function Welcome() {
           <CvDownload />
         </Zoom>
       </div>
+      
       <WaveAnimation />
       <div className={classes.max_content}>
         <div className={classes.welcome_content}>

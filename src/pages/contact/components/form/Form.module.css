@@ -3,13 +3,14 @@
   height: 550px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto auto 1fr auto;
   grid-template-areas:
     "title title"
+    "email email"
     "name name"
     "message message"
     "button button";
-  grid-gap: 30px;
+  grid-gap: 20px;
   padding: 15px;
   border-radius: 15px;
   background-image: linear-gradient(to top, #2160d466 0%, #3e00615e 100%);
@@ -27,6 +28,9 @@
 }
 .button {
   grid-area: button;
+}
+.email{
+  grid-area: email;
 }
 
 .email_form section {

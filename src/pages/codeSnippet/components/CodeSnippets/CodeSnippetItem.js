@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useHttpClient } from "../../../../hooks/http-hook";
 import FavoriteSystem from "../../../../shared/FavoriteSystem/FavoriteSystem";
 import LikeSystem from "../../../../shared/likeSystem/LikeSystem";
 import classes from "./CodeSnippetItem.module.css";
@@ -14,12 +15,49 @@ function CodeSnippetItem(props) {
     date,
     likes,
   } = props.codeSnippet;
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const onHearthLikeChanges = (id) => {
-    console.log("snippet item ", id);
+    const sendLike = async () => {
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/like",
+          "POST",
+          JSON.stringify({
+            snippet_id: id,
+            user_id: "u2",
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
+        console.log(responseData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    sendLike();
   };
   const onFavoriteChanges = (id) => {
-    console.log("snippet item favorite", id);
+    const sendFavotite = async () => {
+      try {
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/favorite",
+          "POST",
+          JSON.stringify({
+            snippet_id: id,
+            user_id: "u2",
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
+        console.log(responseData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    sendFavotite();
   };
 
   return (

@@ -7,3 +7,8 @@
 .Code_Snippet_Page h1{
     color: rgb(200, 175, 244);
 }
+.spinner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

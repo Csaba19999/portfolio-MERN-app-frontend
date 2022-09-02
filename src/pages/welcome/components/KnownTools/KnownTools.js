@@ -2,7 +2,7 @@ import './KnownTools.css';
 import background from './background.png';
 import { Fragment } from 'react';
 
-function KnownTools() {
+function KnownTools(props) {
   return (
     <Fragment>
       <h3>Általam ismert eszközök</h3>

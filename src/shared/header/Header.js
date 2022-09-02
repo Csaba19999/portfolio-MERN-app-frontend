@@ -19,7 +19,7 @@ function Header() {
             alt="svg-signiture"
           />
         </Fade>
-        {width < 800 ? (
+        {width < 875 ? (
             <BurgerNavLinks />
         ) : (
           <Fade triggerOnce direction="down" duration={1000}>

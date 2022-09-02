@@ -3,13 +3,19 @@ import { Fragment, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { Fade } from "react-awesome-reveal";
 import NavItem from "./NavItem";
+import SubNav from "./subNav";
 
 function BurgerNavLinks() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubNavOpen, setIsSubNavOpen] = useState(false);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
   };
+
+  const toggleSubNav = () => {
+    setIsSubNavOpen(!isSubNavOpen);
+  }
 
   return (
     <Fragment>
@@ -45,26 +51,36 @@ function BurgerNavLinks() {
         unmountOnExit
       >
         <nav className={classes.navigation}>
-          <Fade direction="up" duration={1000}>
+          {!isSubNavOpen && (
+            <Fade direction="up" duration={1000}>
+              <ul className={classes.nav_items}>
+                <NavItem closeBurger={toggleNav} name={"kezdőlap"} route="/" />
+                <NavItem
+                  closeBurger={toggleNav}
+                  name={"kapcsolat"}
+                  route="/contact"
+                />
+                <NavItem
+                  closeBurger={toggleNav}
+                  name={"referenciák"}
+                  route="/references"
+                />
+                <NavItem
+                  closeBurger={toggleNav}
+                  name={"snippet's"}
+                  route="/codeSnippet"
+                />
+                <SubNav toggleSubNav={toggleSubNav}></SubNav>
+              </ul>
+            </Fade>
+          )}
+          {isSubNavOpen && (
             <ul className={classes.nav_items}>
-              <NavItem closeBurger={toggleNav} name={"kezdőlap"} route="/" />
-              <NavItem
-                closeBurger={toggleNav}
-                name={"kapcsolat"}
-                route="/contact"
-              />
-              <NavItem
-                closeBurger={toggleNav}
-                name={"referenciák"}
-                route="/references"
-              />
-              <NavItem
-                closeBurger={toggleNav}
-                name={"snippet's"}
-                route="/codeSnippet"
-              />
+              <SubNav toggleSubNav={toggleSubNav}>
+                <NavItem name={"belépés"} route="/signin" />
+              </SubNav>
             </ul>
-          </Fade>
+          )}
         </nav>
       </CSSTransition>
     </Fragment>
