@@ -4,6 +4,8 @@ import { CSSTransition } from "react-transition-group";
 import { Fade } from "react-awesome-reveal";
 import NavItem from "./NavItem";
 import SubNav from "./subNav";
+import Profile from "../userProfile/Profile";
+import GoogleAuth from "../auth/GoogleAuth";
 
 function BurgerNavLinks() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +17,7 @@ function BurgerNavLinks() {
 
   const toggleSubNav = () => {
     setIsSubNavOpen(!isSubNavOpen);
-  }
+  };
 
   return (
     <Fragment>
@@ -77,7 +79,10 @@ function BurgerNavLinks() {
           {isSubNavOpen && (
             <ul className={classes.nav_items}>
               <SubNav toggleSubNav={toggleSubNav}>
-                <NavItem name={"belépés"} route="/signin" />
+                <div className={classes.subNavWrapp}>
+                  <Profile />
+                  <GoogleAuth />
+                </div>
               </SubNav>
             </ul>
           )}

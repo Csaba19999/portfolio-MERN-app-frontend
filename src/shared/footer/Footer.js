@@ -25,9 +25,8 @@ function Footer() {
       </div>
       <div className={classes.footer_description}>
         <p>
-          Ez az én személyes portfóliós oldalam! Lorem ipsum Ez az én személyes
-          portfóliós oldalam! Lorem ipsum Ez az én személyes portfóliós oldalam!
-          Lorem ipsum Ez az én személyes portfóliós oldalam! Lorem ipsum{" "}
+          Ez az én személyes portfóliós oldalam! Itt megtalálhatod a legfrissebb
+          projekteimet, illetve a legfrissebb snippet-jeimet is!
         </p>
         <p>Copyright &copy; {copyRightDate}</p>
       </div>

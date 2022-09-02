@@ -54,7 +54,13 @@
   opacity: 0;
   transition: opacity 300ms;
 }
-
+.subNavWrapp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 @media screen and (max-width: 800px) {
   .hamburger_nav_icon {
     right: 50px;

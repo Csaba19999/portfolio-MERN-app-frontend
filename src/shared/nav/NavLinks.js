@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import GoogleAuth from "../auth/GoogleAuth";
+import Profile from "../userProfile/Profile";
 import NavItem from "./NavItem";
 import classes from "./NavLinks.module.css";
 import SubNav from "./subNav";
 function NavLink(props) {
   const [isSubNavOpen, setIsSubNavOpen] = useState(false);
-  const auth = useSelector((state) => state.auth);
 
   const toggleSubNav = () => {
     console.log("toggleSubNav nav links");
@@ -21,7 +20,10 @@ function NavLink(props) {
         <NavItem name={"referenciák"} route="/references" />
         <NavItem name={"snippet's"} route="/codeSnippet" />
         <SubNav toggleSubNav={toggleSubNav}>
-          <GoogleAuth />
+          <div className={classes.subNavWrapp}>
+            <Profile />
+            <GoogleAuth />
+          </div>
         </SubNav>
       </ul>
     </nav>
