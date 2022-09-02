@@ -4,7 +4,7 @@
   grid-template-areas:
     "ib tb"
     "ss ss";
-  grid-gap: 10px;
+  grid-gap: 80px;
 }
 .image_box {
   grid-area: ib;
@@ -21,7 +21,7 @@
   grid-area: tb;
   width: 400px;
   text-align: left;
-  align-self: center;
+  align-self: top;
 }
 .skills {
   grid-area: ss;

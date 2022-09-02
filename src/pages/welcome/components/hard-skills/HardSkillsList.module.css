@@ -1,6 +1,7 @@
 .soft_skills_list{
     display: grid;
     list-style: none;
+    width: 630px;
     padding-inline-start: unset;
     margin: 0 auto;
     margin: 10px 20px;

@@ -1,6 +1,7 @@
 .code_snippet_item {
   height: auto;
   display: grid;
+  width: 100%;
   grid-template-columns: 100px auto auto;
   grid-template-rows: 50px 50px 140px 80px;
   grid-template-areas:

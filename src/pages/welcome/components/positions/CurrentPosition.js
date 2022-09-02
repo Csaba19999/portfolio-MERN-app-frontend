@@ -4,6 +4,8 @@ import { useHttpClient } from "../../../../hooks/http-hook";
 import LoadingSpinner from "../../../../shared/loadingSpinner/LoadingSpinner";
 import Card from "../../../../shared/overlay/Card";
 import classes from "./CurrentPosition.module.css";
+import { NavLink } from "react-router-dom";
+
 
 function CurrentPosition() {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -31,11 +33,18 @@ function CurrentPosition() {
   }, [sendRequest]);
 
   return (
-    <Card position="center" title={loadedPosition?.title}>
+    <Card position="center" title={loadedPosition?.title !== "" ? loadedPosition.title : "" }>
       {isLoading && (
         <LoadingSpinner spinnerSize={90} />
       )}
-      {!isLoading && (
+      {loadedPosition.company === "" && (
+        <div className={classes.jobless}>
+          <h2>Jelenleg munkát keresek.</h2>
+          <h4>Esetleg volna egy ajánlatod?</h4>
+          <NavLink to="/contact">Küldj egy emailt.</NavLink>
+        </div>
+      )}
+      {!isLoading && loadedPosition.company !== "" && (
         <div className={classes.current_card}>
           <div className={classes.company}>
             <img

@@ -34,7 +34,7 @@ function ShortAbout() {
             <img src={"./images/img/me.png"} alt="" />
           </div>
           <div className={classes.text_box}>
-            <h3>{aboutData.about.title}</h3>
+            <h2>{aboutData.about.title}</h2>
             <pre>{aboutData.about.description}</pre>
           </div>
           <div className={classes.skills}>

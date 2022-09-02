@@ -69,7 +69,25 @@
   font-size: 16px;
   color: #27273c;
 }
-
+.jobless{
+  width: 400px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.jobless a{
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  margin: auto;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  background: linear-gradient(181deg, #b827fc, #37a1fe);
+  animation: AnimationName 5s ease infinite;
+}
 @media screen and (max-width: 1150px) {
   .current_card {
     width: 600px;
@@ -121,4 +139,24 @@
     .current_card {
         width: 100%;
     }
+    .jobless{
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
