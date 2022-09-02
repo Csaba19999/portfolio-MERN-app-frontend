@@ -23,6 +23,13 @@
   text-align: left;
   align-self: top;
 }
+.text_box pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: normal;
+  font-size: 20px;
+}
 .skills {
   grid-area: ss;
   width: 100%;

@@ -13,10 +13,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: normal;
-  font-size: 20px;
-}
