@@ -61,9 +61,6 @@ export const authSlice = createSlice({
       }
 
       if (localStorage.getItem("exp") < Date.now()) {
-
-        console.log("token expired", action.payload);
-
         state.refresh_token = action.payload.refresh_token
         state.isAuthenticated = true;
         state.exp = action.payload.exp

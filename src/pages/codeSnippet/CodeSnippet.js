@@ -17,7 +17,6 @@ function CodeSnippet() {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/snippets/"+technology+"/"+version+"/"+sort+"/"+searchFilde
         );
-        console.log(process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/snippets/"+technology+"/"+version+"/"+sort+"/"+searchFilde)
         setCodeSnippetItems(responseData);
       } catch (error) {
         console.log(error.messege);

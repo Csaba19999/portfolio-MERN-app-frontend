@@ -54,8 +54,6 @@ function GoogleAuth() {
     dispatch(logout());
   };
 
-  console.log("auth", auth);
-
   return (
     <div className={classes.google_auth}>
       <button onClick={isAuthenticated ? googleLogout : googleLogin} className={classes.google_auth_button}>

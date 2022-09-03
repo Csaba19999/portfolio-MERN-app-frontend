@@ -32,7 +32,6 @@ function App() {
         }
       );
       const data = await (await responseData).json();
-      console.log("data", data);
       dispatch(authCheck(data));
     }
   };
