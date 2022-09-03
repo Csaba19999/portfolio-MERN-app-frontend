@@ -17,8 +17,8 @@ function Welcome() {
     <Fragment>
         <div className={classes.title_box}>
         <Fade triggerOnce direction="down" duration={1000}>
-          <h1 className={classes.title}>Szervusz a nevem Ménesi Csaba</h1>
-          <h2 className={classes.title}>És frontend fejlesztő vagyok.</h2>
+          <h1 className={classes.title}>Szervusz, a nevem Ménesi Csaba,</h1>
+          <h2 className={classes.title}>és frontend fejlesztő vagyok.</h2>
           <div className={classes.image_box}>
             <img src="./images/img/profil.jpg" alt="Ménesi Csaba profilképe" />
           </div>

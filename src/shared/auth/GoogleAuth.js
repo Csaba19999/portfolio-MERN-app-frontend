@@ -40,6 +40,7 @@ function GoogleAuth() {
           name: responseData.family_name + " " + responseData.given_name,
           image: responseData.picture,
           email: responseData.email,
+          exp: responseData.exp,
         };
         dispatch(login(loginConfig));
       } catch (error) {
