@@ -7,7 +7,7 @@ function CodeSnippetList(props) {
     <Fragment>
       <ul className={classes.code_snippet_list}>
         {props.snippets.map((codeSnippet) => (
-            <CodeSnippetItem key={codeSnippet.id} codeSnippet={codeSnippet} />
+            <CodeSnippetItem key={codeSnippet._id} codeSnippet={codeSnippet} />
         ))}
       </ul>
     </Fragment>

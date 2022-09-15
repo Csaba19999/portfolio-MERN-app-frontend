@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Hearth from "./Hearth";
 import classes from "./LikeSystem.module.css";
+import { useSelector } from "react-redux";
 
 function LikeSystem(props) {
+  const auth = useSelector((state) => state.auth);
   const { onClickHandeler, id, likes } = props;
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(likes);
@@ -16,12 +18,18 @@ function LikeSystem(props) {
     }
   }, [isLiked]);
 
+  useEffect(() => {
+    setIsLiked(auth.liked_snippets.includes(id));
+  }, [auth]);
+
   const onHarthClick = () => {
-    setIsLiked(!isLiked);
-    if(isLiked){
+    if (auth.isAuthenticated) {
+      setIsLiked(!isLiked);
+      if (isLiked) {
         setLikesCount(likesCount - 1);
-    }else{
+      } else {
         setLikesCount(likesCount + 1);
+      }  
     }
     onClickHandeler(id);
   };
@@ -30,7 +38,9 @@ function LikeSystem(props) {
     <div className={classes.like_system}>
       <div className={classes.like_system_icon}>
         <Hearth color={color} onHarthClick={onHarthClick} />
-        <p style={{color: (props.color ? props.color : "black")}}>{likesCount}</p>
+        <p style={{ color: props.color ? props.color : "black" }}>
+          {likesCount}
+        </p>
       </div>
     </div>
   );

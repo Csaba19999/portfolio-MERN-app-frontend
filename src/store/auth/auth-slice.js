@@ -6,6 +6,8 @@ const initialState = {
   name: "",
   email: "",
   isAuthenticated: false,
+  liked_snippets: [],
+  favorite_snippets: [],
   image: "",
   exp: null,
 };
@@ -20,6 +22,8 @@ export const authSlice = createSlice({
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.isAuthenticated = true;
+      state.liked_snippets = action.payload.liked_snippets;
+      state.favorite_snippets = action.payload.favorite_snippets;
       state.image = action.payload.image;
       state.exp = action.payload.exp;
 
@@ -37,6 +41,8 @@ export const authSlice = createSlice({
       state.name = "";
       state.email = "";
       state.isAuthenticated = false;
+      state.liked_snippets = [];
+      state.favorite_snippets = [];
       state.image = "";
       state.exp = null;
 
@@ -61,20 +67,20 @@ export const authSlice = createSlice({
       }
 
       if (localStorage.getItem("exp") < Date.now()) {
-        state.refresh_token = action.payload.refresh_token
+        state.refresh_token = action.payload.refresh_token;
         state.isAuthenticated = true;
-        state.exp = action.payload.exp
+        state.liked_snippets = action.payload.liked_snippets;
+        state.favorite_snippets = action.payload.favorite_snippets;
+        state.exp = action.payload.exp;
         state.id = localStorage.getItem("id");
         state.name = localStorage.getItem("name");
         state.email = localStorage.getItem("email");
         state.image = localStorage.getItem("image");
 
         localStorage.setItem("refresh_token", action.payload.refresh_token);
-        localStorage.setItem("email", action.payload.email);
         localStorage.setItem("exp", action.payload.exp);
+        localStorage.setItem("isAuthenticated", true);
       }
-
-      
     },
   },
 });

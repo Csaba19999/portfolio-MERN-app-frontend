@@ -148,3 +148,11 @@
     margin: 0;
   }
 }
+@media screen and (max-width: 800px) {
+  .role p{
+    text-align: start;
+  }
+  .date{
+    font-size: 12px;
+  }
+}

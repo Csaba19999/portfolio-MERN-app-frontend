@@ -57,7 +57,7 @@ function GalleryItem(props) {
       </Fade>
       {isModalOpen && (
         <Modal closeModal={closeModal}>
-          <GalleryItemInspect id={props.id} />
+          <GalleryItemInspect id={props._id} />
         </Modal>
       )}
     </Fragment>

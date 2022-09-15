@@ -33,13 +33,15 @@ function GoogleAuth() {
             "Content-Type": "application/json",
           }
         );
-
+          console.log("responseData", responseData);
         const loginConfig = {
           refresh_token: responseData.refresh_token,
-          id: responseData.sub,
+          id: responseData.id,
           name: responseData.family_name + " " + responseData.given_name,
           image: responseData.picture,
           email: responseData.email,
+          favorite_snippets: responseData.favorite_snippets,
+          liked_snippets: responseData.liked_snippets,
           exp: responseData.exp,
         };
         dispatch(login(loginConfig));

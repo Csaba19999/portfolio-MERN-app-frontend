@@ -2,3 +2,14 @@
     margin: 0 auto;
     height: 100%;
 }
+.center{
+    margin: auto;
+}
+.redirect{
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

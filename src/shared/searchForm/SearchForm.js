@@ -124,8 +124,9 @@ function SearchForm(props) {
             onChange={onSortChange}
           >
             <option value="none">alap</option>
-            <option value="ertekeles">értékelés</option>
+            <option value="likes">értékelés</option>
             <option value="date">dátum</option>
+            <option value="favorite">kedvencek</option>
           </select>
         </div>
       </form>

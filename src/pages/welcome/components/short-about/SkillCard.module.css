@@ -20,3 +20,25 @@
         height: 350px;
     }
 }
+@media screen and (max-width: 360px) {
+    .card_content{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "title"
+        "img"
+        "text";
+    }
+    .card_content img{
+        grid-area: img;
+        justify-self: center;
+    }
+    .card_title{
+        grid-area: title;
+    }
+    .card_text{
+        grid-area: text;
+    }
+}

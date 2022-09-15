@@ -1,23 +1,20 @@
 import { Fragment, useEffect, useState } from "react";
 import { useHttpClient } from "../../../../hooks/http-hook";
 import LoadingSpinner from "../../../../shared/loadingSpinner/LoadingSpinner";
-import Card from "../../../../shared/overlay/Card";
 import classes from "./GalleryItemInspect.module.css";
 
 
 function GalleryItemInspect(props) {
   const [inspectingItem, setInspectingItem] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  console.log(props.id);
   useEffect(() => {
     const fetchGalleryItem = async () => {
       try {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_DEFAULT_API_KEY +
-            "/GalleryItem/" +
+            "/GalleryItems/" +
             props.id
         );
-        console.log(responseData);
         setInspectingItem(responseData);
       } catch (error) {
         console.log(error.messege);

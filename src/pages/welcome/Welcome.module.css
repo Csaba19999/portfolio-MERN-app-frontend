@@ -40,6 +40,7 @@
     grid-template-areas: 
     'ck ck'
     'sab sab'
+    'gc gc'
     'cp cp'
     'pp pp'
     'ss hs'
@@ -51,6 +52,10 @@
 .softSkills{
     grid-area: ss;
     justify-self: end;
+}
+.GitHub_card_box{
+    grid-area: gc;
+    justify-self: center;
 }
 .hardSkills{
     grid-area: hs;
@@ -106,6 +111,7 @@
         grid-template-areas: 
         'ck ck'
         'sab sab'
+        'gc gc'
         'cp cp'
         'pp pp'
         'hs hs'
@@ -136,6 +142,25 @@
     .welcome_content{
         width: 89%;
         padding: 0px 0px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .ReferencesGallery{
+        width: 100%;
+    }
+    .shortAboutCard{
+        width: 100%;
+    }
+    .title_box h1, .title_box h2{
+        font-size: 16px;
+    }
+    .image_box{
+        width: 200px;
+        height: 200px;
+    }
+    .title_box{
+        width: auto;
+        top: 200px
     }
 }
 

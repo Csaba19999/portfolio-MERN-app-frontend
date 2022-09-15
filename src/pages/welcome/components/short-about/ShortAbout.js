@@ -1,5 +1,4 @@
 import { Fragment, useEffect, useState } from "react";
-import { Fade } from "react-reveal";
 import { useHttpClient } from "../../../../hooks/http-hook";
 import LoadingSpinner from "../../../../shared/loadingSpinner/LoadingSpinner";
 import classes from "./ShortAbout.module.css";
@@ -17,7 +16,7 @@ function ShortAbout() {
         );
         setAbout(responseData);
       } catch (error) {
-        console.log(error.messege);
+        console.log(error);
       }
     };
     fetchAbout();

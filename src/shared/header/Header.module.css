@@ -52,3 +52,23 @@
     }
     
 }
+
+@media screen and (max-width: 360px){
+    .main_header{
+        display: flex;
+        max-width: 1920px;
+        margin: 0 auto;
+        width: 100%;
+        z-index: 1100;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
+        top: 0px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .signature{
+        width: 70%;
+        filter: invert(100%);
+    }
+}

@@ -1,5 +1,6 @@
 import classes from "./Form.module.css";
-import { useEffect, useState } from "react";
+import { useState, useRef } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function Form() {
   const [nameIsValid, setNameIsValid] = useState(true);
@@ -8,34 +9,35 @@ function Form() {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [messageIsValid, setMessageIsValid] = useState(true);
   const [enteredMessage, setEnteredMessage] = useState("");
-  const [rerenderCounter, setRerenderCounter] = useState(0);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [emailIsValid, setEmailIsValid] = useState(true);
-
-  useEffect(() => {
-    if (rerenderCounter >= 1) {
-      formValiti();
-    }
-    setRerenderCounter(rerenderCounter + 1);
-  }, [messageIsValid, titlelIsValid, nameIsValid]);
+  const [isLoading, setIsLoading] = useState(false);
+  const nameInputRef = useRef();
+  const titleInputRef = useRef();
+  const messageInputRef = useRef();
+  const emailInputRef = useRef();
 
   const formValiti = () => {
+    let isError = false;
     if (enteredName.length >= 3 && enteredName.length <= 40) {
       setNameIsValid(true);
     } else {
       setNameIsValid(false);
+      isError = true;
     }
 
     if (enteredTitle.length >= 4 && enteredTitle.length <= 50) {
       setTitleIsValid(true);
     } else {
       setTitleIsValid(false);
+      isError = true;
     }
 
     if (enteredMessage.length >= 15) {
       setMessageIsValid(true);
     } else {
       setMessageIsValid(false);
+      isError = true;
     }
 
     if (
@@ -48,7 +50,21 @@ function Form() {
       setEmailIsValid(true);
     } else {
       setEmailIsValid(false);
+      isError = true;
     }
+    return isError;
+  };
+
+  const formClearUp = () => {
+    //clear all input fields
+    nameInputRef.current.value = "";
+    titleInputRef.current.value = "";
+    messageInputRef.current.value = "";
+    emailInputRef.current.value = "";
+    setEnteredName("");
+    setEnteredTitle("");
+    setEnteredMessage("");
+    setEnteredEmail("");
   };
 
   const handleNameChange = (event) => {
@@ -66,17 +82,12 @@ function Form() {
 
   const submitHandeler = (event) => {
     event.preventDefault();
-    formValiti();
-    if (
-      nameIsValid === false ||
-      titlelIsValid === false ||
-      messageIsValid === false ||
-      emailIsValid === false
-    ) {
-      console.log("Error");
+    const isError = formValiti();
+    if (isError) {
       return;
     } else {
       const emailSend = async () => {
+        setIsLoading(true);
         const options = {
           method: "POST",
           headers: {
@@ -91,24 +102,44 @@ function Form() {
         };
 
         const endpoint =
-        process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/contact"; ///change to env
+          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/contact";
         const response = await fetch(endpoint, options);
+        if (response.status === 200) {
+          toast.success("Üzenet elküldve!");
+          formClearUp();
+        } else {
+          toast.error("Hiba a küldés során!");
+        }
+        setIsLoading(false);
       };
       emailSend();
     }
   };
 
+  console.log(isLoading);
+
   return (
     <form className={`${classes.email_form}`} onSubmit={submitHandeler}>
+      <Toaster
+        position="top-left"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            zIndex: 20000,
+            marginTop: "100px",
+          },
+        }}
+      />
       <section className={classes.name}>
         <label htmlFor="name">Név</label>
         <input
+          ref={nameInputRef}
           onChange={handleNameChange}
           className={`${nameIsValid ? "" : classes.invalid}`}
           id="name"
           name="name"
           type="text"
-          placeholder="Name"
+          placeholder="Nagy Ádám"
         />
         {!nameIsValid && (
           <p className={`${nameIsValid ? "" : classes.invalidError}`}>
@@ -119,12 +150,13 @@ function Form() {
       <section className={classes.title}>
         <label htmlFor="title">Tárgy</label>
         <input
+          ref={titleInputRef}
           onChange={handleTitleChange}
           className={`${titlelIsValid ? "" : classes.invalid}`}
           id="title"
           name="title"
           type="text"
-          placeholder="Subject"
+          placeholder="Állás ajánlat"
         />
         {!titlelIsValid && (
           <p className={`${titlelIsValid ? "" : classes.invalidError}`}>
@@ -135,11 +167,12 @@ function Form() {
       <section className={classes.email}>
         <label htmlFor="email">E-mail</label>
         <input
+          ref={emailInputRef}
           onChange={handleEmailChange}
           className={`${emailIsValid ? "" : classes.invalid}`}
           id="email"
           name="email"
-          placeholder="Email"
+          placeholder="minta@gmail.com"
         />
         {!emailIsValid && (
           <p className={`${emailIsValid ? "" : classes.invalidError}`}>
@@ -150,11 +183,12 @@ function Form() {
       <section className={classes.message}>
         <label htmlFor="message">Üzenet</label>
         <textarea
+          ref={messageInputRef}
           onChange={handleMessageChange}
           className={`${messageIsValid ? "" : classes.invalid}`}
           name="message"
           id="message"
-          placeholder="Message"
+          placeholder="Üdv! Érdekelne a pozíció...?"
         ></textarea>
         {!messageIsValid && (
           <p className={`${messageIsValid ? "" : classes.invalidError}`}>
@@ -162,7 +196,7 @@ function Form() {
           </p>
         )}
       </section>
-      <button className={`${classes.button}`} type="submit">
+      <button disabled={isLoading} className={`${classes.button}`} type="submit">
         Küldés
       </button>
     </form>

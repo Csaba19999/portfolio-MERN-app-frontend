@@ -34,7 +34,7 @@ function ReferencesGallery(props) {
         {loadedGalleryItems.map((item, index) => (
           <GalleryItem
             animationDelay={animationDelay}
-            key={item.id}
+            key={item._id}
             {...item}
             delay={index + 5}
           />

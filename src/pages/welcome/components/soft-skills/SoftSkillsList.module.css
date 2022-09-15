@@ -25,3 +25,9 @@
         gap: 20px;
     }
 }
+@media screen and (max-width: 360px) {
+    .soft_skills_list{
+        margin: 0px;
+        padding: 0px;
+    }
+}

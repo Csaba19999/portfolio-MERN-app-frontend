@@ -8,17 +8,20 @@ import FavoriteSystem from "../../shared/FavoriteSystem/FavoriteSystem";
 import { Fragment, useEffect, useState } from "react";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../../shared/loadingSpinner/LoadingSpinner";
+import { useSelector } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 function CodeSnippetView() {
   const { id } = useParams();
   const [codeSnippet, setCodeSnippet] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const user = useSelector((state) => state.auth);
 
   useEffect(() => {
     const fetchSnippet = async () => {
       try {
         const responseData = await sendRequest(
-          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/snippet/" + id
+          process.env.REACT_APP_BACKEND_DEFAULT_API_KEY + "/snippets/" + id
         );
         setCodeSnippet(responseData);
       } catch (error) {
@@ -36,8 +39,8 @@ function CodeSnippetView() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            snippet_id: id,
-            user_id: "u2",
+            snippetId: id,
+            userId: user.id,
           }),
         };
 
@@ -59,8 +62,8 @@ function CodeSnippetView() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            snippet_id: id,
-            user_id: "u2",
+            snippetId: id,
+            userId: user.id,
           }),
         };
 
@@ -74,8 +77,13 @@ function CodeSnippetView() {
     }
   };
 
+  const callToast = () => {
+    toast.error("jelentekezz be");
+  };
+
   return (
     <div className={classes.Code_Snippet_View}>
+      <Toaster position="top-left" />
       {isLoading && !codeSnippet && <LoadingSpinner spinnerSize={90} />}
       {!isLoading && codeSnippet && (
         <Fragment>
@@ -109,12 +117,12 @@ function CodeSnippetView() {
             <div className={classes.like_box}>
               <FavoriteSystem
                 id={id}
-                onClickHandeler={onFavoriteChanges}
+                onClickHandeler={user.isAuthenticated ? onFavoriteChanges : callToast}
                 color="black"
               />
               <LikeSystem
                 id={id}
-                onClickHandeler={onHearthLikeChanges}
+                onClickHandeler={user.isAuthenticated ? onHearthLikeChanges : callToast}
                 likes={codeSnippet.likes}
                 color="black"
               />

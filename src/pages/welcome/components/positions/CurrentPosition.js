@@ -26,7 +26,7 @@ function CurrentPosition() {
         }
         setLoadedTools(tools);
       } catch (error) {
-        console.log(error.messege);
+        console.log(error);
       }
     };
     fetchPosition();

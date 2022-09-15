@@ -1,7 +1,7 @@
 .code_snippet_item {
   height: auto;
   display: grid;
-  width: 100%;
+  width: -webkit-fill-available;
   grid-template-columns: 100px auto auto;
   grid-template-rows: 50px 50px 140px 80px;
   grid-template-areas:
@@ -114,6 +114,7 @@
   .code_snippet_item {
     height: auto;
     display: grid;
+    grid-template-columns: 100px auto;
     grid-template-rows: min-content min-content 150px auto auto;
     grid-template-areas:
       "title title"
@@ -140,5 +141,21 @@
   }
   .title {
     margin: 0;
+  }
+  .description {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .hearth {
+    width: auto;
+    justify-self: center;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    gap: 0;
   }
 }

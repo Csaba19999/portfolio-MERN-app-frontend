@@ -10,6 +10,7 @@ import classes from "./Welcome.module.css";
 import CurrentPosition from "./components/positions/CurrentPosition";
 import PreviusPositions from "./components/positions/PreviusPositions";
 import ReferencesGallery from "./components/references-gallery/ReferencesGallery";
+import GithubCard from "./components/github/GithubCard";
 
 function Welcome() {
 
@@ -36,6 +37,9 @@ function Welcome() {
           </Fade>
           <Fade className={classes.shortAboutCard} triggerOnce direction="up" duration={1000}>
                 <ShortAbout />
+          </Fade>
+          <Fade className={classes.GitHub_card_box} triggerOnce direction="up" duration={1000}>
+            <GithubCard />
           </Fade>
           <Fade className={classes.CurrentPosition} triggerOnce direction="up" duration={1000}>
              <CurrentPosition />

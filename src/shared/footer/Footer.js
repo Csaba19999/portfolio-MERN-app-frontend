@@ -31,9 +31,15 @@ function Footer() {
         <p>Copyright &copy; {copyRightDate}</p>
       </div>
       <div className={classes.footer_social_media}>
-        <img src="./images/icons/discord-icon.svg" alt="discord logo" />
-        <img src="./images/icons/facebook-logo-2019.svg" alt="facebook logo" />
-        <img src="./images/icons/GitHub-Mark-Light-64px.png" alt="github logo" />
+        <a href="https://discord.gg/Q6Ew3nMF" target={"_blank"}>
+          <img src="./images/icons/discord-icon.svg" alt="discord logo" />
+        </a>
+        <a href="https://www.facebook.com/csaba.menesi.1" target={"_blank"}>
+          <img src="./images/icons/facebook-logo-2019.svg" alt="facebook logo" />
+        </a>
+        <a href="https://github.com/Csaba19999" target={"_blank"}>
+          <img src="./images/icons/GitHub-Mark-Light-64px.png" alt="github logo" />
+        </a>
       </div>
     </footer>
   );

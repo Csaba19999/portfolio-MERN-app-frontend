@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .like_system_icon p{
     font-size: 1.5rem;

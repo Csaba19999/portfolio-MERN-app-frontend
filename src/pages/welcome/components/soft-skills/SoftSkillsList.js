@@ -31,9 +31,9 @@ function SoftSkillsList() {
       )}
       {!isLoading && (
         <ul className={classes.soft_skills_list}>
-          {softSkills.map((skill) => (
+          {softSkills.map((skill, index) => (
             <SoftSkillsItem
-              key={skill.id}
+              key={skill._id+"_"+index}
               id={skill.id}
               title={skill.title}
               description={skill.description}

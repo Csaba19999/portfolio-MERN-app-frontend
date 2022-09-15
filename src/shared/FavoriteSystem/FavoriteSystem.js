@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Star from "./Star";
 import classes from "./FavoriteSystem.module.css";
+import { useSelector } from "react-redux";
 
 function FavoriteSystem(props) {
+  const auth = useSelector((state) => state.auth);
   const { onClickHandeler, id } = props;
   const [isFavorite, setIsFavorite] = useState(false);
   const [color, setColor] = useState("");
@@ -15,8 +17,14 @@ function FavoriteSystem(props) {
     }
   }, [isFavorite]);
 
+  useEffect(() => {
+    setIsFavorite(auth.favorite_snippets.includes(id));
+  }, [auth.favorite_snippets]);
+
   const onStarClick = () => {
-    setIsFavorite(!isFavorite);
+    if (auth.isAuthenticated) {
+      setIsFavorite(!isFavorite);  
+    }
     onClickHandeler(id);
   };
 
