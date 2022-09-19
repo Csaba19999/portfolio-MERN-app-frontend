@@ -73,8 +73,9 @@ function GalleryItemInspect(props) {
                   href={inspectingItem.pageLink}
                 >
                   <img
-                    src={"./images/icons/GitHub-Mark-Light-64px.png"}
+                    src={"./images/icons/hyperlink.png"}
                     alt="link"
+                    style={{filter: "invert(1)", width: "30px"}}
                   />
                   Irány az oldal
                 </a>
