@@ -14,6 +14,9 @@ function Contact() {
             <h2>Ha tetszik az oldal,</h2>
             <h3>vagy felvennéd velem a kapcsolatot,</h3>
             <h4>akkor bátran küldj egy email!</h4>
+            <br></br>
+            <h6>Figyelem! Az email küldés jelenleg nem lehetséges.</h6>
+            <h6>A google hitelesítési folyamata alatt áll.</h6>
           </div>
         </Fade>
         <Fade className={classes.form_box} direction="center">
