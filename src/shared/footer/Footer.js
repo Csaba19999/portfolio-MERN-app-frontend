@@ -21,6 +21,9 @@ function Footer() {
           <li>
             <NavLink to="/codeSnippet">snippet's</NavLink>
           </li>
+          <li>
+            <NavLink to="/privacy">Privacy Policy</NavLink>
+          </li>
         </ul>
       </div>
       <div className={classes.footer_description}>

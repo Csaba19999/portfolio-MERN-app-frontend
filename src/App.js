@@ -7,13 +7,16 @@ import { useDispatch } from "react-redux";
 import { authCheck } from "./store/auth/auth-slice";
 import LoadingSpinner from "./shared/loadingSpinner/LoadingSpinner";
 import "./App.css";
+import Privacy from "./pages/Privacy/Privacy";
 
 const Welcome = React.lazy(() => import("./pages/welcome/Welcome"));
 const Contact = React.lazy(() => import("./pages/contact/Contact"));
 const References = React.lazy(() => import("./pages/references/References"));
 const NotFound = React.lazy(() => import("./pages/404/NotFound"));
 const CodeSnippet = React.lazy(() => import("./pages/codeSnippet/CodeSnippet"));
-const CodeSnippetView = React.lazy(() => import("./pages/CodeSnippetView/CodeSnippetView"));
+const CodeSnippetView = React.lazy(() =>
+  import("./pages/CodeSnippetView/CodeSnippetView")
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -76,6 +79,9 @@ function App() {
         </Route>
         <Route path="/notFound" exact>
           <NotFound />
+        </Route>
+        <Route path="/privacy" exact>
+          <Privacy />
         </Route>
         <Redirect to="/notFound" />
       </Switch>
