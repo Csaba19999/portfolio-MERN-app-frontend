@@ -8,6 +8,7 @@ import { authCheck } from "./store/auth/auth-slice";
 import LoadingSpinner from "./shared/loadingSpinner/LoadingSpinner";
 import "./App.css";
 import Privacy from "./pages/Privacy/Privacy";
+import Admin from "./pages/admin/Admin";
 
 const Welcome = React.lazy(() => import("./pages/welcome/Welcome"));
 const Contact = React.lazy(() => import("./pages/contact/Contact"));
@@ -82,6 +83,9 @@ function App() {
         </Route>
         <Route path="/privacy" exact>
           <Privacy />
+        </Route>
+        <Route path="/mcsadmin" exact>
+          <Admin />
         </Route>
         <Redirect to="/notFound" />
       </Switch>

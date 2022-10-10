@@ -77,6 +77,9 @@
   justify-content: center;
   flex-direction: column;
 }
+.jobless h4{
+  margin: 0px;
+}
 .jobless a{
   color: rgb(255, 255, 255);
   padding: 20px;
@@ -146,6 +149,14 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+    }
+    .jobless h2{
+      margin: 5px;
+    }
+    .jobless h4{
+      margin: 5px;
+    }.jobless a{
+      margin: 5px;
     }
 }
 
